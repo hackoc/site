@@ -20,7 +20,7 @@ export default function Home() {
           width: '100%',
           padding: '5rem 2rem',
         }}>
-          <h1 className={styles.title}>
+          <h1 className={styles.title}> 
             Hack <span className="color-orange" style={{
               marginLeft: '-12px',
               position: 'relative'
