@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Icon from '@hackclub/icons'
 
@@ -63,7 +62,7 @@ export default function Home() {
           </div>
 
       <img src="/orange.png" style={{
-        position: 'absolute',
+        position: 'fixed',
         bottom: '-20px',
         right: '-40px',
         width: '300px',
@@ -86,7 +85,7 @@ export default function Home() {
         >
           Powered by{' '}
           <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            <img src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>

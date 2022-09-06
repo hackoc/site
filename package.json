@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages-build": "next build && next export && rm -rf docs && mv out docs"
   },
   "dependencies": {
     "@hackclub/icons": "^0.0.9",
