@@ -127,6 +127,17 @@
   }
 }
 
+@media (max-width: 1199px) {
+  .sponsors {
+    background: black;
+    color: white;
+    padding: 30px;
+  }
+}
+.sponsors {
+
+}
+
 .grid {
   display: flex;
   align-items: center;

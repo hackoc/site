@@ -1,10 +1,24 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Icon from '@hackclub/icons'
+import Modal from '../components/Modal'
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [modal, setModal] = useState(false);
   return (
     <>
+    <Modal visible={modal} setVisible={setModal}>
+    <iframe src="https://bank.hackclub.com/donations/start/hackoc" style={{
+      width: '100%',
+      height: '100%',
+      border: 'none',
+      borderRadius: '8px',
+      border: '2px solid var(--orange)'
+    }}>
+
+      </iframe>
+    </Modal>
     <div className={styles.container} style={{
       position: 'relative',
       zIndex: '10',
@@ -77,10 +91,12 @@ export default function Home() {
 
       </main>
       <div className={styles.sponsors}>
-        <button className={styles.button}>Register</button>
-        <a href="https://bank.hackclub.com/hackoc/donate" target="_blank">
-          <button className={styles.altButton}>Donate</button>
+        <a href="https://register.hackoc.org" target="_blank">
+          <button className={styles.button}>Register</button>
         </a>
+        <button className={styles.altButton} onClick={() => {
+          setModal(true);
+        }}>Donate</button>
         <a href="https://bank.hackclub.com/hackoc" target="_blank">
           <button className={styles.altButton}>Finances</button>
         </a>
