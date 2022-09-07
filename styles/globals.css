@@ -1,13 +1,14 @@
 * {
   --orange: #FA7B33;
+  --font-stack: 'Readex Pro', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Readex Pro', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-stack);
 }
 
 a {

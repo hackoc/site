@@ -7,7 +7,8 @@ export default function Home() {
     <>
     <div className={styles.container} style={{
       position: 'relative',
-      zIndex: '10'
+      zIndex: '10',
+      overflow: 'hidden'
     }}>
       <Head>
         <title>Hack OC</title>
@@ -53,16 +54,19 @@ export default function Home() {
           <div style={{
             position: 'relative',
             zIndex: '20'
-          }}>
+          }} className={styles.innerContent}>
           <h1>What's Hack OC?</h1>
           <p>Hack OC is the first in-person high school hackathon after the pandemic in Orange County, California. We're inviting you and anyone else to participate in <span>10 hours</span> of <span>coding</span>, <span>building</span>, <span>learning</span>, and <span>sharing</span>.</p>
           <br />
           <h1>What's a "hackathon"?</h1>
-          <p>Hackathons are in-person coding events where teenagers come together to learn new skills, create fun projects, and make memories, typically for a day or two. There's also food, snacks, and drinks to fuel your creativity.</p>
+          <p>Hackathons are in-person coding events where teenagers come together to learn new skills, create fun projects, and make memories, typically for a day or two. There's also food, snacks, and drinks to fuel your creativity. Instead of hacking bank accounts like you hear in the news, you'll build something meaningful to you.</p>
+          <br />
+          <h1>Who can participate in Hack OC?</h1>
+          <p>We're inviting all high school students to participate in Hack OC <span>completely free</span>. If you'd still like to support us, however, <a href="/donate">you can donate here</a>. Since this hackathon is geared toward just high school students, we aren't allowing any college students or older to participate.</p>
           </div>
 
       <img src="/orange.png" style={{
-        position: 'fixed',
+        position: 'absolute',
         bottom: '-20px',
         right: '-40px',
         width: '300px',
@@ -72,12 +76,36 @@ export default function Home() {
         </div>
 
       </main>
+      <div className={styles.sponsors}>
+        <button className={styles.button}>Register</button>
+        <a href="https://bank.hackclub.com/hackoc/donate" target="_blank">
+          <button className={styles.altButton}>Donate</button>
+        </a>
+        <a href="https://bank.hackclub.com/hackoc" target="_blank">
+          <button className={styles.altButton}>Finances</button>
+        </a>
+        <a href="https://github.com/hackoc" target="_blank">
+          <button className={styles.altButton}>GitHub</button>
+        </a>
+        <h2>SPECIAL THANKS TO OUR SPONSORS:</h2>
+        <img src="/bank-dark.svg" />
+      </div>
 
       <footer className={styles.footer} style={{
         backgroundColor: 'white',
         position: 'relative',
         zIndex: '25'
       }}>
+      <div style={{
+        position: 'absolute',
+        bottom: '0px',
+        left: '0px',
+        transform: 'translateY(99px)',
+        height: '100px',
+        width: '100vw',
+        background: 'white',
+        zIndex: '26'
+      }}></div>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"

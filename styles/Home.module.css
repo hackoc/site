@@ -10,8 +10,12 @@
   padding: 5rem 2rem;
 }
 
-.content h1 {
+.content h1, .content a {
   color: var(--orange);
+}
+
+.content a {
+  text-decoration: underline;
 }
 
 @media (min-width: 600px) {
@@ -79,6 +83,50 @@
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
+.content {
+  overflow: hidden;
+}
+
+@media (min-width: 800px) {
+  .innerContent {
+    max-width: 60vw;
+  }  
+}
+
+.innerContent span {
+  font-weight: bold;
+}
+
+.innerContent span:nth-child(3n+1) {
+  color: rgb(196, 59, 91);
+}
+
+.innerContent span:nth-child(3n+2) {
+  color: rgb(28, 155, 94);
+}
+
+.innerContent span:nth-child(3n+3) {
+  color: rgb(45, 74, 136);
+}
+
+@media (min-width: 1200px) {
+  .main {
+    width: calc(100vw - 350px);
+  }
+
+  .sponsors {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 350px;
+    height: 100%;
+    background: black;
+    color: white;
+    padding: 30px;
+    z-index: 24;
+  }
+}
+
 .grid {
   display: flex;
   align-items: center;
@@ -140,4 +188,40 @@
   .logo img {
     filter: invert(1);
   }
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  font-size: 24px;
+  border-radius: 8px;
+  background-color: var(--orange);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-family: var(--font-stack);
+  margin-bottom: 16px;
+  transition: 0.3s all;
+}
+
+.button:hover {
+  transform: translateY(-4px);
+}
+
+.altButton {
+  width: 100%;
+  padding: 10px;
+  font-size: 24px;
+  border-radius: 8px;
+  background: black;
+  margin-bottom: 16px;
+  border: 2px solid var(--orange);
+  color: white;
+  cursor: pointer;
+  font-family: var(--font-stack);
+  transition: 0.3s all;
+}
+
+.altButton:hover {
+  transform: translateY(-4px);
 }
