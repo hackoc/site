@@ -1,5 +1,6 @@
 * {
-  --orange: #FA7B33;
+  --orange: #fa7b33;
+  --orange-3-values: 250, 123, 51;
   --font-stack: 'Readex Pro', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }

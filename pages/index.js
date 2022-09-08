@@ -91,8 +91,12 @@ export default function Home() {
 
       </main>
       <div className={styles.sponsors}>
-        <a href="https://register.hackoc.org" target="_blank">
-          <button className={styles.button}>Register</button>
+        <a href="https://register.hackoc.org" disabled={"true"} target="_blank" onClick={e => e.preventDefault()}>
+          <button className={styles.altButton} style={{
+            background:  'rgba(var(--orange-3-values), 0.3)',
+            cursor: 'default',
+            transform: 'translate(0px, 0px)'
+          }}>Sign-Ups Open Soon</button>
         </a>
         <button className={styles.altButton} onClick={() => {
           setModal(true);
