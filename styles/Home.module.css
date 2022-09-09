@@ -236,3 +236,28 @@
 .altButton:hover {
   transform: translateY(-4px);
 }
+
+.input {
+
+  width: 100%;
+  padding: 10px;
+  font-size: 24px;
+  border-radius: 8px;
+  background-color: var(--orange);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-family: var(--font-stack);
+  margin-bottom: 16px;
+  transition: 0.3s all;
+  outline: none;
+  border: 2px solid var(--orange)
+}
+
+.input:focus, .input:focus-within {
+  border: 2px solid white;
+}
+
+.button:hover {
+  box-shadow: 0px 2px 20px #00000099;
+}
