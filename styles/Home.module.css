@@ -8,9 +8,10 @@
 .content {
   width: 100%;
   padding: 5rem 2rem;
+  font-size: 24px;
 }
 
-.content h1, .content a {
+.content h2, .content a {
   color: var(--orange);
 }
 
@@ -26,7 +27,7 @@
 
 @media (min-width: 800px) {
   .content {
-    padding: 5rem 8rem;
+    padding: 2rem 10rem;
   }
 }
 
@@ -69,7 +70,7 @@
 }
 
 .description {
-  margin: 2rem 0;
+  margin: 1.2rem 0;
   line-height: 1.5;
   font-size: 1.5rem;
 }
@@ -91,6 +92,9 @@
   .innerContent {
     max-width: 60vw;
   }  
+  .title {
+    transform: scale(160%);
+  }
 }
 
 .innerContent span {
@@ -103,6 +107,11 @@
 
 .innerContent span:nth-child(3n+2) {
   color: rgb(28, 155, 94);
+}
+
+.innerContent h2 {
+  margin-block-start: 0.37em;
+  margin-block-end: 0.37em;
 }
 
 .innerContent span:nth-child(3n+3) {
@@ -124,6 +133,16 @@
     color: white;
     padding: 30px;
     z-index: 24;
+  }
+}
+
+@media (max-width: 400px) {
+  .description {
+    margin-top: 0.2rem;
+    font-size: 1.2rem;
+  }
+  .inputCenter {
+    margin-top: 3.4rem!important;
   }
 }
 
