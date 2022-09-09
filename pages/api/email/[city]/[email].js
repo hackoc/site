@@ -1,5 +1,5 @@
 export default async function (req, res) {
-    fetch(process.env.SLACK_WEBHOOK, {
+    await fetch(process.env.SLACK_WEBHOOK, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -8,5 +8,6 @@ export default async function (req, res) {
             email: req.query.email,
             ip_city: req.query.city
         })
-    })
+    });
+    res.send('OK')
 }
