@@ -70,13 +70,16 @@ export default function Home() {
             zIndex: '20'
           }} className={styles.innerContent}>
           <h1>What's Hack OC?</h1>
-          <p>Hack OC is the first in-person high school hackathon after the pandemic in Orange County, California. We're inviting you and anyone else to participate in <span>10 hours</span> of <span>coding</span>, <span>building</span>, <span>learning</span>, and <span>sharing</span>.</p>
+          <p>Hack OC is the first in-person high school hackathon after the pandemic in Orange County, California. We're inviting you and all high schoolers else to participate in <span>10 hours</span> of <span>coding</span>, <span>building</span>, <span>learning</span>, and <span>sharing</span>. Whether you're technical and experienced or haven't ever written a line of code, Hack OC will be a fun and welcoming event for everyone.</p>
           <br />
           <h1>What's a "hackathon"?</h1>
           <p>Hackathons are in-person coding events where teenagers come together to learn new skills, create fun projects, and make memories, typically for a day or two. There's also food, snacks, and drinks to fuel your creativity. Instead of hacking bank accounts like you hear in the news, you'll build something meaningful to you.</p>
           <br />
           <h1>Who can participate in Hack OC?</h1>
           <p>We're inviting all high school students to participate in Hack OC <span>completely free</span>. If you'd still like to support us, however, <a href="/donate">you can donate here</a>. Since this hackathon is geared toward just high school students, we aren't allowing any college students or older to participate.</p>
+          <br />
+          <h1>Will there be prizes? 👀</h1>
+          <p>Yes! We're thrilled about them and can't wait to announce soon. More about judging and prizes will be shared closer to the event. We promise it's worth your time!</p>
           </div>
 
       <img src="/orange.png" style={{
