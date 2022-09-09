@@ -47,6 +47,8 @@ export default function Home() {
         <div className="background-charcoal color-white" style={{
           width: '100%',
           padding: '5rem 2rem',
+          position: 'relative',
+          overflow: 'hidden'
         }}>
           <h1 className={styles.title}> 
             Hack <span className="color-orange" style={{
@@ -62,7 +64,28 @@ export default function Home() {
               }} className="noselect" />
             </span>
           </h1>
-
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="https://image.mux.com/Ky7jkGMIAHsoWs1m8QAp1HXmA00Who3hMSbka901IWxdw/thumbnail.png?width=214&height=121&fit_mode=pad"
+            duration={2000}
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: 'auto!important',
+              width: '100% !important',
+              minHeight: '600px',
+              objectFit: 'cover',
+              zIndex: -1
+            }}
+        >
+          <source src="https://stream.mux.com/402YMZJfp6kW02302E3r1RMe013Ub9AqlPwzr4VjD00HO7ME.m3u8" />
+          <source src="https://stream.mux.com/402YMZJfp6kW02302E3r1RMe013Ub9AqlPwzr4VjD00HO7ME/medium.mp4" />
+        </video>
         <p className={styles.description}>
           <span className="color-orange">
             <b>
@@ -77,9 +100,9 @@ export default function Home() {
           position: 'relative',
           height: '55px'
         }}>
-          <p>{submitted ? 'Thank you! Expect to hear from us soon. 👀' : 'Be the first to hear when registration opens!'}</p>
+          <p style={{opacity: submitted ? 1 : 0.7, color: submitted ? 'rgb(34, 191, 116)' : 'white'}}>{submitted ? 'Thank you! Expect to hear from us soon. 👀' : 'Be the first to hear when registration opens!'}</p>
           {!submitted &&
-        <center style={{
+        <center className={styles.inputCenter} style={{
           display: 'block',
           marginTop: '2rem',
           display: 'flex',
@@ -156,16 +179,13 @@ export default function Home() {
             position: 'relative',
             zIndex: '20'
           }} className={styles.innerContent}>
-          <h1>What's Hack OC?</h1>
+          <h2>What's Hack OC?</h2>
           <p>Hack OC is the first in-person high school hackathon after the pandemic in Orange County, California. We're inviting you and all high schoolers to participate in <span>10 hours</span> of <span>coding</span>, <span>building</span>, <span>learning</span>, and <span>sharing</span>. Whether you're technical and experienced or haven't ever written a line of code, Hack OC will be a fun and welcoming event for everyone.</p>
-          <br />
-          <h1>What's a "hackathon"?</h1>
-          <p>Hackathons are in-person coding events where teenagers come together to learn new skills, create fun projects, and make memories, typically for a day or two. There's also food, snacks, and drinks to fuel your creativity. Instead of hacking bank accounts like you hear in the news, you'll build something meaningful to you.</p>
-          <br />
-          <h1>Who can participate in Hack OC?</h1>
+          <h2>What's a "hackathon"?</h2>
+          <p>Hackathons are in-person coding events where teenagers come together to learn new skills, create fun projects, and make memories. There's also food, snacks, and drinks to fuel your creativity. Instead of hacking bank accounts like you hear in the news, you'll build something meaningful to you.</p>
+          <h2>Who can participate in Hack OC?</h2>
           <p>We're inviting all high school students to participate in Hack OC <span>completely free</span>. If you'd still like to support us, however, <a href="/donate">you can donate here</a>. Since this hackathon is geared toward just high school students, we aren't allowing any college students or older to participate.</p>
-          <br />
-          <h1>Will there be prizes? 👀</h1>
+          <h2>Will there be prizes? 👀</h2>
           <p>Yes! We're thrilled about them and can't wait to make an announcement soon. More about judging and prizes will be shared closer to the event. Why not <a href="#" style={{ textDecoration: 'underline', color: 'var(--orange)' }}>drop your email</a> so we can let you know? We promise it's worth your time!</p>
           </div>
 
@@ -205,33 +225,6 @@ export default function Home() {
         <h2>SPECIAL THANKS TO</h2>
         <img src="/bank-dark.svg" />
       </div>
-
-      <footer className={styles.footer} style={{
-        backgroundColor: 'white',
-        position: 'relative',
-        zIndex: '25'
-      }}>
-      <div style={{
-        position: 'absolute',
-        bottom: '0px',
-        left: '0px',
-        transform: 'translateY(99px)',
-        height: '100px',
-        width: '100vw',
-        background: 'white',
-        zIndex: '26'
-      }}></div>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <img src="/vercel.svg" alt="Vercel Logo" width={"72"} height={"16"} />
-          </span>
-        </a>
-      </footer>
     </div>
     </>
   )
