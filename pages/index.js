@@ -6,6 +6,10 @@ import { useEffect, useState } from 'react';
 
 const regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
+// const timelapseId = "9x00RCb1N7WTpAl6cIN0000Kult00vyzslROW6A1RblWwxM"
+
+const timelapseId = "402YMZJfp6kW02302E3r1RMe013Ub9AqlPwzr4VjD00HO7ME"
+
 export default function Home() {
   const [modal, setModal] = useState(false);
   const handleFormEnter = () => { 
@@ -69,7 +73,7 @@ export default function Home() {
             muted
             loop
             playsInline
-            poster="https://image.mux.com/Ky7jkGMIAHsoWs1m8QAp1HXmA00Who3hMSbka901IWxdw/thumbnail.png?width=214&height=121&fit_mode=pad"
+            poster={`https://image.mux.com/${timelapseId}/thumbnail.png?width=214&height=121&fit_mode=pad`}
             duration={2000}
             style={{
               position: 'absolute',
@@ -83,8 +87,8 @@ export default function Home() {
               zIndex: -1
             }}
         >
-          <source src="https://stream.mux.com/402YMZJfp6kW02302E3r1RMe013Ub9AqlPwzr4VjD00HO7ME.m3u8" />
-          <source src="https://stream.mux.com/402YMZJfp6kW02302E3r1RMe013Ub9AqlPwzr4VjD00HO7ME/medium.mp4" />
+          <source src={`https://stream.mux.com/${timelapseId}.m3u8`} />
+          <source src={`https://stream.mux.com/${timelapseId}/medium.mp4`} />
         </video>
         <p className={styles.description}>
           <span className="color-orange">
