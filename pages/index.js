@@ -15,7 +15,16 @@ export default function Home() {
   const handleFormEnter = () => { 
     if (regex.test(email)) {
       fetch('https://ip.yodacode.xyz').then(res => res.json()).then(({ geo }) => {
-        fetch(`/api/email/${encodeURIComponent(geo.city)}/${encodeURIComponent(email)}`).then(() => {
+        fetch('/api/v2', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email,
+            city: geo.city
+          })
+        }).then(() => {
           setSubmitted(true);
         });
       })
