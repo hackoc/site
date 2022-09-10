@@ -1,4 +1,5 @@
 export default async function ({ req, res }) {
+    console.log(req);
     const { email, city } = req.body;
     const response = await fetch('https://api.airtable.com/v0/appYlvRWZObGXXGOh/Emails', {
         method: 'POST',
