@@ -28,11 +28,6 @@ const nextConfig = {
         source: '/register',
         destination: 'https://hackoc.org',
         basePath: false
-      },
-      {
-        source: '/contact',
-        destination: 'mailto:team@hackoc.org',
-        basePath: false
       }
     ]
   }
