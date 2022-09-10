@@ -207,7 +207,7 @@ export default function Home() {
       <div className={styles.sponsors} style={{
         overflowY: 'scroll'
       }}>
-        <a href="https://register.hackoc.org" disabled={"true"} target="_blank" onClick={e => e.preventDefault()}>
+        <a href="/register" disabled={"true"} target="_blank" onClick={e => e.preventDefault()}>
           <button className={styles.altButton} style={{
             background:  'rgba(var(--orange-3-values), 0.3)',
             cursor: 'default',
@@ -217,10 +217,10 @@ export default function Home() {
         <button className={styles.altButton} onClick={() => {
           setModal(true);
         }}>Donate</button>
-        <a href="https://bank.hackclub.com/hackoc" target="_blank">
+        <a href="/finances" target="_blank">
           <button className={styles.altButton}>Finances</button>
         </a>
-        <a href="https://github.com/hackoc" target="_blank">
+        <a href="/github" target="_blank">
           <button className={styles.altButton}>GitHub</button>
         </a>
         <h1>Sponsors</h1>
