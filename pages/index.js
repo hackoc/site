@@ -217,6 +217,9 @@ export default function Home() {
         <button className={styles.altButton} onClick={() => {
           setModal(true);
         }}>Donate</button>
+        <a href="/discord" target="_blank">
+          <button className={styles.altButton}>Discord</button>
+        </a>
         <a href="/finances" target="_blank">
           <button className={styles.altButton}>Finances</button>
         </a>
