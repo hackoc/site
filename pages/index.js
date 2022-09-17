@@ -175,7 +175,7 @@ export default function Home() {
             right: '4px',
             fontWeight: 'bolder'
           }} onClick={handleFormEnter}>
-            ✓
+            →
           </button>
           </div>
           </div>
