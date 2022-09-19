@@ -280,3 +280,7 @@
 .button:hover {
   box-shadow: 0px 2px 20px #00000099;
 }
+
+.scaleHover:hover {
+  transform: scale(1.07);
+}

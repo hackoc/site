@@ -32,6 +32,10 @@ export default function Home() {
   };
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [donor, setDonor] = useState('');
+  useEffect(() => {
+    fetch('/api/donor').then(res => res.text()).then(setDonor);
+  }, []);
   return (
     <>
     <Modal visible={modal} setVisible={setModal}>
@@ -240,6 +244,39 @@ export default function Home() {
         <br />
         <h2>SPECIAL THANKS TO</h2>
         <img src="/bank-dark.svg" />
+        <a href="https://bank.hackclub.com/hackoc/donations" target="_blank">
+        <div style={{
+          width: '300px',
+          maxWidth: '100%',
+          height: '100px',
+          border: '2px solid transparent',
+          marginTop: '10px',
+          background: '#8899aa33',
+          borderRadius: '8px',
+          transition: '0.2s all'
+        }} className={styles.scaleHover}>
+          <center>
+            <h2 style={{
+              marginBottom: '0px',
+              whiteSpace: 'nowrap',
+              textOverflow: 'ellipsis',
+              width: 'calc(100% - 60px)',
+              overflow: 'hidden'
+            }}>{donor}</h2>
+            <p style={{
+              textTransform: 'uppercase',
+              marginTop: '8px',
+              fontSize: '12px',
+              color: '#8899aa',
+              lineHeight: '0px'
+            }}>and other generous donors
+              <Icon glyph="external" size={16} style={{
+                transform: 'translate(1px, 3px)'
+              }} />
+            </p>
+          </center>
+        </div>
+        </a>
       </div>
     </div>
     </>
