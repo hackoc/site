@@ -17,6 +17,18 @@ const nextConfig = {
         permanent: false
       },
       {
+        source: '/bank',
+        destination: 'https://hackoc.org/finances',
+        basePath: false,
+        permanent: false
+      },
+      {
+        source: '/money',
+        destination: 'https://hackoc.org/finances',
+        basePath: false,
+        permanent: false
+      },
+      {
         source: '/github',
         destination: 'https://github.com/hackoc',
         basePath: false,
