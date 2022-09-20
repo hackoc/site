@@ -281,6 +281,10 @@
   box-shadow: 0px 2px 20px #00000099;
 }
 
-.scaleHover:hover {
+.scaleHover:hover, .sponsor:hover {
   transform: scale(1.07);
+}
+
+.sponsor {
+  transition: 0.2s all;
 }

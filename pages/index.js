@@ -243,7 +243,9 @@ export default function Home() {
         <p>Hack OC wouldn't be possible without help from our sponsors. Want to help make Hack OC incredible? Email us at <a href="mailto:team@hackoc.org" style={{ color: 'var(--orange)', textDecoration: 'underline' }}>team@hackoc.org</a> to get involved!</p>
         <br />
         <h2>SPECIAL THANKS TO</h2>
-        <img src="/bank-dark.svg" />
+        <a href="https://hackclub.com/bank">
+        <img className={styles.sponsor} src="/bank-dark.svg" />
+        </a>
         <a href="https://bank.hackclub.com/hackoc/donations" target="_blank">
         <div style={{
           width: '300px',
@@ -252,9 +254,8 @@ export default function Home() {
           border: '2px solid transparent',
           marginTop: '10px',
           background: '#8899aa33',
-          borderRadius: '8px',
-          transition: '0.2s all'
-        }} className={styles.scaleHover}>
+          borderRadius: '8px'
+        }} className={styles.sponsor}>
           <center>
             <h2 style={{
               marginBottom: '0px',
