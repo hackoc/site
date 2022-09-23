@@ -63,6 +63,12 @@ const nextConfig = {
         destination: 'https://hackoc.org/prospectus.pdf',
         basePath: false,
         permanent: false
+      },
+      {
+        source: '/email',
+        destination: 'mailto:team@hackoc.org',
+        basePath: false,
+        permanent: false
       }
     ]
   }
