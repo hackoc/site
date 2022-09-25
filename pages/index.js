@@ -25,7 +25,9 @@ export default function Home() {
             city: geo.city
           })
         }).then(() => {
-          setSubmitted(true);
+          fetch('http://mail.hackoc.org/v1/unauthed/subscribe/webhook').then(() => {
+            setSubmitted(true);
+          });
         });
       })
     }
