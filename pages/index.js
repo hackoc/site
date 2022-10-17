@@ -242,7 +242,7 @@ export default function Home() {
           <button className={styles.altButton}>GitHub</button>
         </a>
         <h1>Sponsors</h1>
-        <p>Hack OC wouldn't be possible without help from our sponsors. Want to help make Hack OC incredible? Email us at <a href="mailto:team@hackoc.org" style={{ color: 'var(--orange)', textDecoration: 'underline' }}>team@hackoc.org</a> to get involved!</p>
+        <p>Hack OC wouldn't be possible without help from our sponsors. Want to help make Hack OC incredible? Email us at <a href="mailto:team@hackoc.org" style={{ color: 'var(--orange)', textDecoration: 'underline' }}>team@hackoc.org</a> or check out our <a href="/prospectus" style={{ color: 'var(--orange)', textDecoration: 'underline' }} target="_blank">prospectus</a> to get involved!</p>
         <br />
         <h2>SPECIAL THANKS TO</h2>
         <a href="https://hackclub.com/bank">
