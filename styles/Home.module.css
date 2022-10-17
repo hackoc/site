@@ -282,6 +282,9 @@
   transform: scale(1.07);
 }
 
-.sponsor {
+.sponsor:not(.sponsor-special) {
   transition: 0.2s all;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  max-width: 256px;
 }

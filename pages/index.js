@@ -246,7 +246,10 @@ export default function Home() {
         <br />
         <h2>SPECIAL THANKS TO</h2>
         <a href="https://hackclub.com/bank">
-        <img className={styles.sponsor} src="/bank-dark.svg" />
+        <img className={styles.sponsor} src="/sponsor-assets/bank.svg" />
+        </a>
+        <a href="https://vercel.com">
+        <img className={styles.sponsor} src="/sponsor-assets/vercel.svg" />
         </a>
         <a href="https://bank.hackclub.com/hackoc/donations" target="_blank">
         <div style={{
