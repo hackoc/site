@@ -23,7 +23,8 @@ function MyApp({ Component, pageProps }) {
         src="https://plausible.io/js/plausible.js"
       />
       <Script
-        async
+        defer
+        crossorigin="anonymous"
         src="https://cdn.splitbee.io/sb.js"
       />
       <Component {...pageProps} />
