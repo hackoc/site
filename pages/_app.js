@@ -1,8 +1,12 @@
 import '../styles/globals.css'
 import Head from 'next/head'
 import Script from 'next/script'
+import { useEffect } from 'react'
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
+  }, []);
   return (
     <>
       <Head>
@@ -14,10 +18,14 @@ function MyApp({ Component, pageProps }) {
         <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
       </Head>
       <Script 
-          defer 
-          data-domain="hackoc.org"
-          src="https://plausible.io/js/plausible.js"
-        />
+        defer 
+        data-domain="hackoc.org"
+        src="https://plausible.io/js/plausible.js"
+      />
+      <Script
+        async
+        src="https://cdn.splitbee.io/sb.js"
+      />
       <Component {...pageProps} />
     </>
   )
