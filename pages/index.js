@@ -13,8 +13,14 @@ const timelapseId = "402YMZJfp6kW02302E3r1RMe013Ub9AqlPwzr4VjD00HO7ME"
 export default function Home() {
   const [modal, setModal] = useState(false);
   const handleFormEnter = () => { 
-    if (regex.test(email)) {
+    if (regex.test(email) && !loading) {
+      
       fetch('https://ip.yodacode.xyz').then(res => res.json()).then(({ geo }) => {
+        setLoading(true);
+        splitbee.track("Email Subscribe", {
+          email,
+          city: geo.city
+        });
         fetch('/api/v2', {
           method: 'POST',
           headers: {
@@ -34,6 +40,7 @@ export default function Home() {
   };
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [donor, setDonor] = useState('');
   useEffect(() => {
     fetch('/api/donor').then(res => res.text()).then(setDonor);
@@ -150,6 +157,9 @@ export default function Home() {
             padding: '13px',
             position: 'relative',
             boxSizing: 'border-box',
+            ...(loading ? {
+              border: '2px solid #803c1c'
+            } : {}),
             height: '52px'
           }}>
             <input placeholder="Email" type="email" style={{
@@ -167,7 +177,7 @@ export default function Home() {
               fontFamily: 'var(--font-stack)'
             }} value={email} onKeyUp={e => {
               if (e?.key == 'Enter') handleFormEnter();
-            }} onChange={e => setEmail(e.target.value)} />
+            }} onChange={e => setEmail(e.target.value)} disabled={loading} />
           <button className={styles.button} style={{
             width: '40px',
             height: '40px',
@@ -179,8 +189,12 @@ export default function Home() {
             borderRadius: '2px',
             top: '4px',
             right: '4px',
-            fontWeight: 'bolder'
-          }} onClick={handleFormEnter}>
+            fontWeight: 'bolder',
+            ...(loading ? {
+              filter: 'brightness(0.5)',
+              cursor: 'default'
+            } : {})
+          }} onClick={handleFormEnter} disabled={loading}>
             →
           </button>
           </div>
