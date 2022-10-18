@@ -2,10 +2,15 @@ import '../styles/globals.css'
 import Head from 'next/head'
 import Script from 'next/script'
 import { useEffect } from 'react'
+import splitbee from '@splitbee/web';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
+    splitbee.init({
+      scriptUrl: "/bee.js",
+      apiUrl: "/_hive",
+    });
   }, []);
   return (
     <>

@@ -4,6 +4,18 @@ const nextConfig = {
   swcMinify: true,
   redirects: async () => {
     return [
+	    {
+	      source: "/bee.js",
+	      destination: "https://cdn.splitbee.io/sb.js",
+	    },
+	    {
+	      source: "/_hive/:slug",
+	      destination: "https://hive.splitbee.io/:slug",
+	    },
+	  ];
+  },
+  redirects: async () => {
+    return [
       {
         source: '/discord',
         destination: 'https://discord.gg/cPfHW8SQ5B',
