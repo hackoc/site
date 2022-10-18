@@ -2,11 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  redirects: async () => {
+  rewrites: async () => {
     return [
 	    {
 	      source: "/bee.js",
 	      destination: "https://cdn.splitbee.io/sb.js",
+        
 	    },
 	    {
 	      source: "/_hive/:slug",
