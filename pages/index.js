@@ -5,6 +5,10 @@ import Modal from '../components/Modal'
 import { useEffect, useState } from 'react';
 import splitbee from '@splitbee/web';
 
+const meta_desc = "Orange County's first high school coding event since the pandemic. Join us for 12 hours of hacking, workshops, & friendship.";
+const theme_color = '#FA7B33';
+const social_image = '/social.png';
+
 const regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
 // const timelapseId = "9x00RCb1N7WTpAl6cIN0000Kult00vyzslROW6A1RblWwxM"
@@ -66,8 +70,19 @@ export default function Home() {
     }}>
       <Head>
         <title>Hack OC - Orange County's high school hackathon</title>
-        <meta name="description" content="Orange County's first high school coding event since the pandemic. Join us for 12 hours of hacking, workshops, & friendship." />
+        <meta name="description" content={meta_desc} />
         <link rel="icon" href="/favicon.ico" />
+        <meta key="og_locale" property="og:locale" content="en_US" />
+        <meta key="og_type" property="og:type" content="website" />
+        <meta key="og_site" property="og:site_name" content="Hack OC" />
+        <meta key="og_title" property="og:title" content="Hack OC - Orange County's high school hackathon" />
+        <meta key="desc" name="description" content={meta_desc} />
+        <meta key="og_desc" property="og:description" content={meta_desc} />
+        <meta key="tw_desc" name="twitter:description" content={meta_desc} />
+        <meta key="theme_color" name="theme-color" content={theme_color} />
+        <meta key="og_img" property="og:image" content={social_image} />
+        <meta key="tw_card" name="twitter:card" content="summary_large_image" />
+        <meta key="tw_img" name="twitter:image" content={social_image} />
       </Head>
 
       <main className={styles.main}>
