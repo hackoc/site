@@ -53,13 +53,15 @@ export default function Home() {
   return (
     <>
     <Modal visible={modal} setVisible={setModal}>
-    <iframe src="https://bank.hackclub.com/donations/start/hackoc" style={{
-      width: '100%',
-      height: '100%',
-      border: 'none',
-      borderRadius: '8px',
-      border: '2px solid var(--orange)'
-    }}>
+      <iframe src="https://bank.hackclub.com/donations/start/hackoc" style={{
+        width: '100%',
+        height: '100%',
+        border: 'none',
+        borderRadius: '8px',
+        border: '2px solid var(--orange)'
+      }} onLoad={e => {
+        if (!e.target.src.endsWith('donations/start/hackoc')) splitbee.track("Donation");
+      }}>
 
       </iframe>
     </Modal>
@@ -261,11 +263,11 @@ export default function Home() {
         </a>
         <button className={styles.altButton} onClick={() => {
           setModal(true);
-        }}>Donate</button>
-        <a href="/discord" target="_blank">
+        }} data-splitbee-event="Donate Click">Donate</button>
+        <a href="/discord" target="_blank" data-splitbee-event="Discord Click">
           <button className={styles.altButton}>Discord</button>
         </a>
-        <a href="/finances" target="_blank">
+        <a href="/finances" target="_blank" data-splitbee-event="Finances Click">
           <button className={styles.altButton}>Finances</button>
         </a>
         <a href="/github" target="_blank">
