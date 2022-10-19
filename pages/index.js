@@ -60,7 +60,9 @@ export default function Home() {
         borderRadius: '8px',
         border: '2px solid var(--orange)'
       }} onLoad={e => {
-        if (!e.target.src.endsWith('donations/start/hackoc')) splitbee.track("Donation");
+        if (!e.target.src.endsWith('donations/start/hackoc')) splitbee.track("Donation", {
+          url: e.target.src
+        });
       }}>
 
       </iframe>
