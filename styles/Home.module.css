@@ -123,6 +123,10 @@
     width: calc(100vw - 350px);
   }
 
+  .bottomFooter {
+    width: calc(100vw - 350px);
+  }
+
   .sponsors {
     position: fixed;
     top: 0px;

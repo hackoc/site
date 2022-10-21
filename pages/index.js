@@ -49,6 +49,14 @@ export default function Home() {
   const [donor, setDonor] = useState('');
   useEffect(() => {
     fetch('/api/donor').then(res => res.text()).then(setDonor);
+    if (!localStorage.getItem('hackoc-analytics')) {
+      fetch('https://ip.yodacode.xyz').then(res => res.json()).then(({ geo }) => {
+        splitbee.user.set({
+          city: geo.city
+        });
+        localStorage.setItem('hackoc-analytics', true);
+      });
+    }
   }, []);
   return (
     <>
@@ -237,9 +245,9 @@ export default function Home() {
           <h2>What's a "hackathon"?</h2>
           <p>Hackathons are in-person coding events where teenagers come together to learn new skills, create fun projects, and make memories. There's also food, snacks, and drinks to fuel your creativity. Instead of hacking bank accounts like you hear in the news, you'll build something meaningful to you.</p>
           <h2>Who can participate in Hack OC?</h2>
-          <p>We're inviting all high school students to participate in Hack OC <span>completely free</span>. If you'd still like to support us, however, <a href="/donate">you can donate here</a>. Since this hackathon is geared toward just high school students, we aren't allowing any college students or older to participate.</p>
+          <p>We're inviting all high school students to participate in Hack OC <span>completely free</span>. If you'd still like to support us, however, <a href="#" onClick={e => { e.preventDefault(); setModal(true); splitbee.track("Donate Click", { location: 'copy' }); }}>you can donate here</a>. Since this hackathon is geared toward just high school students, we aren't allowing any college students or older to participate.</p>
           <h2>Will there be prizes? 👀</h2>
-          <p>Yes! We're thrilled about them and can't wait to make an announcement soon. More about judging and prizes will be shared closer to the event. Why not <a href="#" style={{ textDecoration: 'underline', color: 'var(--orange)' }}>drop your email</a> so we can let you know? We promise it's worth your time!</p>
+          <p>Yes! We're thrilled about them and can't wait to make an announcement soon. More about judging and prizes will be shared closer to the event. Why not <a href="#" style={{ textDecoration: 'underline', color: 'var(--orange)' }} data-splitbee-event="Interaction" data-splitbee-event-type="scroll-to-top">drop your email</a> so we can let you know? We promise it's worth your time!</p>
           </div>
 
       <img src="/orange.png" style={{
@@ -265,18 +273,18 @@ export default function Home() {
         </a>
         <button className={styles.altButton} onClick={() => {
           setModal(true);
-        }} data-splitbee-event="Donate Click">Donate</button>
-        <a href="/discord" target="_blank" data-splitbee-event="Discord Click">
+        }} data-splitbee-event="Donate Click" data-splitbee-event-location="sidebar">Donate</button>
+        <a href="/discord" target="_blank" data-splitbee-event="Discord Click" data-splitbee-event-location="sidebar">
           <button className={styles.altButton}>Discord</button>
         </a>
-        <a href="/finances" target="_blank" data-splitbee-event="Finances Click">
+        <a href="/finances" target="_blank" data-splitbee-event="Finances Click" data-splitbee-event-location="sidebar">
           <button className={styles.altButton}>Finances</button>
         </a>
         <a href="/github" target="_blank">
           <button className={styles.altButton}>GitHub</button>
         </a>
         <h1>Sponsors</h1>
-        <p>Hack OC wouldn't be possible without help from our sponsors. Want to help make Hack OC incredible? Email us at <a href="mailto:team@hackoc.org" style={{ color: 'var(--orange)', textDecoration: 'underline' }}>team@hackoc.org</a> or check out our <a href="/prospectus" style={{ color: 'var(--orange)', textDecoration: 'underline' }} target="_blank" onClick={e => {
+        <p>Hack OC wouldn't be possible without help from our sponsors. Want to help make Hack OC incredible? Email us at <a href="mailto:team@hackoc.org" style={{ color: 'var(--orange)', textDecoration: 'underline' }} data-splitbee-event="Email Click" data-splitbee-event-location="sidebar">team@hackoc.org</a> or check out our <a href="/prospectus" style={{ color: 'var(--orange)', textDecoration: 'underline' }} target="_blank" onClick={e => {
           e.preventDefault();
           splitbee.track("Prospectus Download", {
             ...(email ? { email } : {})
@@ -323,6 +331,38 @@ export default function Home() {
           </center>
         </div>
         </a>
+      </div>
+      <div style={{
+        background: '#ddd',
+        fontWeight: '300',
+        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '20px',
+        flexDirection: 'column'
+      }} className={styles.bottomFooter}>
+        <div>
+          Hack OC is fiscally sponsored by The Hack Foundation.
+          Nonprofit EIN: 81-2908499.
+        </div>
+        <div style={{ marginTop: '10px', marginBottom: '-8px' }}>
+          <a href="https://instagram.com/hack.oc" data-splitbee-event="Instagram Click" data-splitbee-event-location="footer">
+            <Icon glyph='instagram' size={32} />
+          </a>
+          <a href="https://github.com/hackoc" data-splitbee-event="GitHub Click" data-splitbee-event-location="footer">
+            <Icon glyph='github' size={32} />
+          </a>
+          <a href="https://bank.hackclub.com/hackoc" data-splitbee-event="Finances Click" data-splitbee-event-location="footer">
+            <Icon glyph='bank-account' size={32} />
+          </a>
+          <a href="mailto:team@hackoc.org" data-splitbee-event="Email Click" data-splitbee-event-location="footer">
+            <Icon glyph='email' size={32} />
+          </a>
+          <a href="https://twitter.com/letshackoc" data-splitbee-event="Twitter Click" data-splitbee-event-location="footer">
+            <Icon glyph='twitter' size={32} />
+          </a>
+        </div>
       </div>
     </div>
     </>
