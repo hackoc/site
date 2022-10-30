@@ -25,6 +25,18 @@ const nextConfig = {
         permanent: false
       },
       {
+        source: '/gh/:repo',
+        destination: 'https://github.com/hackoc/:repo',
+        basePath: false,
+        permanent: false
+      },
+      {
+        source: '/github/:repo',
+        destination: 'https://github.com/hackoc/:repo',
+        basePath: false,
+        permanent: false
+      },
+      {
         source: '/finances',
         destination: 'https://bank.hackclub.com/hackoc',
         basePath: false,
