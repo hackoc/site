@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function Modal ({ visible, setVisible, children }) {
+export default function Modal ({ visible, setVisible, children, hideCloseButton }) {
     if (visible) return (
         <>
             <div style={{
@@ -31,27 +31,29 @@ export default function Modal ({ visible, setVisible, children }) {
                 background: 'white',
                 borderRadius: '8px'
             }}>
-                <div style={{
-                    position: 'fixed',
-                    top: '0px',
-                    right: '-40px',
-                    width: '30px',
-                    height: '30px',
-                    background: 'var(--orange)',
-                    zIndex: '1002',
-                    borderRadius: '8px',
-                    display: "flex",
-                    alignItems: 'center',
-                    alignContent: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    fontWeight: 'bold',
-                    color: 'white'
-                }} onClick={() => {
-                    setVisible(false);
-                }}>
-X
-                </div>
+                {!hideCloseButton &&
+                    <div style={{
+                        position: 'fixed',
+                        top: '0px',
+                        right: '-40px',
+                        width: '30px',
+                        height: '30px',
+                        background: 'var(--orange)',
+                        zIndex: '1002',
+                        borderRadius: '8px',
+                        display: "flex",
+                        alignItems: 'center',
+                        alignContent: 'center',
+                        justifyContent: 'center',
+                        cursor: 'pointer',
+                        fontWeight: 'bold',
+                        color: 'white'
+                    }} onClick={() => {
+                        setVisible(false);
+                    }}>
+                        <span style={{ transform: 'scale(2) translateY(-1px)', fontWeight: '200' }}>×</span>
+                    </div>
+                }
                 {children}
             </div>
         </>

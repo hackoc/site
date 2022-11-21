@@ -67,12 +67,6 @@ const nextConfig = {
         permanent: false
       },
       {
-        source: '/register',
-        destination: 'https://hackoc.org',
-        basePath: false,
-        permanent: false
-      },
-      {
         source: '/contact',
         destination: 'mailto:team@hackoc.org',
         basePath: false,

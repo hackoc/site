@@ -1,0 +1,151 @@
+.wrapper input {
+    width: 100%;
+    border-radius: 0.25em;
+    border-color: #d3d3d4;
+    transition: 0.2s;
+    border-width: 2px;
+    border-style: solid;
+    padding: 0.5em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: system-ui, Inter;
+}
+
+.wrapper input:hover {
+    border-color: #b7b7b8;
+}
+
+.wrapper.isValid > span {
+    filter: opacity(1);
+}
+
+.wrapper.isPartiallyValid > span {
+    filter: opacity(0.6) grayscale(0.6);
+}
+
+.wrapper input[type="date"] + span {
+    transform: translate(-26px, -1px);
+}
+
+.wrapper label {
+    margin-bottom: 0.1em;
+    font-weight: 600;
+}
+
+.wrapper p {
+    margin-top: 0em;
+    margin-bottom: 0.5em;
+    color: #767676;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.wrapper input:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 0 2px rgba(var(--orange-3-values), 0.2)
+}
+
+.wrapper {
+    min-width: 200px;
+    font-family: system-ui, Inter;
+    position: relative;
+}
+
+.wrapper > span {
+    color: #21ca71;
+    font-weight: 700;
+    font-size: 20px;
+    position: absolute;
+    display: inline-block;
+    filter: opacity(0);
+    right: 10px;
+    bottom: 8px;
+    pointer-events: none;
+    transition: 0.1s;
+}
+
+.wrapper input::placeholder {
+    color: rgb(157, 157, 157);
+    opacity: 1;
+}
+
+.wrapper > label > span {
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+    cursor: help;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    transform: translateY(-2px);
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+
+}
+
+.wrapper > label > span > span {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background: rgba(51, 124, 227, 0.769);
+    border-radius: 6px;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    outline: none;
+}
+
+.wrapper > label > span > span:after {
+    opacity: 0;
+    color: white;
+    letter-spacing: 0;
+    line-height: 1.375;
+    transform: translateY(50%);
+    box-shadow: 0 0 2px 0 #00000010,
+      0 4px 8px 0 #00000020;
+    content: attr(aria-label);
+    z-index: 10;
+    left: 100%;
+    bottom: 50%;
+    min-height: 20px;
+    position: absolute;
+    padding: 0.25rem 0.75rem;
+    background-color: #000000df;
+    border-radius: 6px;
+    font-family: Inter;
+    font-size: 14px;
+    max-width: 240px;
+    font-weight: 500;
+    transition: 0.15s all ease;
+    width: max-content;
+    height: min-content;
+    right: 0;
+    pointer-events: none;
+    word-wrap: break-word;
+    text-align: center;
+    margin-left: 0.5rem;
+}
+
+.wrapper > label > span:hover > span:after,
+.wrapper > label > span:active > span:after,
+.wrapper > label > span:focus > span:after,
+.wrapper > label > span:focus-within > span:after {
+    outline: none;
+    z-index: 9;
+    opacity: 1;
+}
+
+.wrapper > label > span:focus-within {
+    background: rgba(51, 124, 227, 0.2);
+}
