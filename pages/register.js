@@ -15,9 +15,11 @@ const timelapseId = "9x00RCb1N7WTpAl6cIN0000Kult00vyzslROW6A1RblWwxM"
 // const timelapseId = "402YMZJfp6kW02302E3r1RMe013Ub9AqlPwzr4VjD00HO7ME"
 
 export default function Register() {
-  const [showForm, setShowForm] = useState(process.env.NODE_ENV !== "production")
 
   const [modal, setModal] = useState(false);
+
+  const [key, setKey] = useState('');
+  const [showForm, setShowForm] = useState(process.env.NODE_ENV !== "production" || key == VERCEL_GIT_COMMIT_SHA)
   const handleFormEnter = () => { 
     if (regex.test(email)) {
       fetch('https://ip.yodacode.xyz').then(res => res.json()).then(({ geo }) => {
@@ -44,6 +46,7 @@ export default function Register() {
       get: (searchParams, prop) => searchParams.get(prop),
     });
     if (params?.email) setEmail(params?.email);    
+    if (params?.key) setKey(params?.key);
   }, []);
   if (!showForm) return (
     <>
