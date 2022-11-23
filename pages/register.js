@@ -19,7 +19,7 @@ export default function Register() {
   const [modal, setModal] = useState(false);
 
   const [key, setKey] = useState('');
-  const [showForm, setShowForm] = useState(process.env.NODE_ENV !== "production" || key == VERCEL_GIT_COMMIT_SHA)
+  const [showForm, setShowForm] = useState(process.env.NODE_ENV !== "production" || key == process.env.VERCEL_GIT_COMMIT_SHA)
   const handleFormEnter = () => { 
     if (regex.test(email)) {
       fetch('https://ip.yodacode.xyz').then(res => res.json()).then(({ geo }) => {
