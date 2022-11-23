@@ -173,7 +173,8 @@ export default function Register() {
                                     type: question.type,
                                     placeholder: question.placeholder,
                                     validate: question.verify,
-                                    required: question.required
+                                    required: question.required,
+                                    dontDisplayAll: question.dontDisplayAll
                                   }} />
                                 : question.special == 'text' ? <Title {...{
                                   name: question.name,

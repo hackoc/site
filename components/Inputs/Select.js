@@ -40,9 +40,9 @@ function scrollParentToChild (child, parent) {
     }
 }
     
+const modify = str => str.toLowerCase().split('').filter(a => `abcdefghijklmnopqrstuvwxyz1234567890`.includes(a)).join('') ?? '';
 
 function looseMatch (str1, str2) {
-    const modify = str => str?.toLowerCase()?.split('')?.filter(a => `abcdefghijklmnopqrstuvwxyz1234567890`.includes(a))?.join('') ?? '';
     return modify(str1) == modify(str2);
 }
 
@@ -53,6 +53,7 @@ export function Chip ({ chipData: chip, forceUpdate, chips, setChips, multiSelec
         if (!isVisible(selfRef.current)) {
             scrollParentToChild(selfRef.current);
         }
+        window.looseMatch = looseMatch;
     }, [isSelected]);
 
     return (
@@ -94,6 +95,7 @@ export function Chip ({ chipData: chip, forceUpdate, chips, setChips, multiSelec
                 setChips(theseChips);
                 forceUpdate();
                 startEdits();
+                setLocalData('');
             }
         }}>
             {isCustom && 'Add '} <span data-color={chip.color} className={styles.chip} key={Math.floor(Math.random() * 10000) + '-' + Date.now()}>{chip.name} <span className={styles.close}>×</span></span>
@@ -102,7 +104,9 @@ export function Chip ({ chipData: chip, forceUpdate, chips, setChips, multiSelec
 }
 
 export default function Select (props) {
-    const { multi, options = [], special, validate: _validate, name, description, help, placeholder, data, setData, initialData, wrapperClass, width, margin, type, id: _id, required } = props;
+    const { multi, options = [], special, validate: _validate, name, description, help, placeholder, data, setData, initialData, wrapperClass, width, margin, type, id: _id, required, dontDisplayAll } = props;
+
+    const displayAll = !dontDisplayAll;
 
     const [selected, setSelected] = useState(0);
 
@@ -136,7 +140,12 @@ export default function Select (props) {
     useEffect(() => {
         let excluded = presetChips.filter(presetChip => !chips.map(chip => chip.name).includes(presetChip.name));
         if (localData?.length) {
-            setDisplayedPresetChips(excluded.filter(chip => chip.name.toLowerCase().split(' ').join('').includes(localData.toLowerCase().split(' ').join(''))));
+            setDisplayedPresetChips(
+                excluded.filter(chip => (
+                    modify(chip.name).includes(modify(localData))
+                    || !modify(localData).split('').filter((a, i) => chip.name.toLowerCase().split(' ')[i]?.[0] !== a).length
+                ))
+            );
         } else {
             setDisplayedPresetChips(excluded);
         }
@@ -182,7 +191,7 @@ export default function Select (props) {
                 margin: margin ?? '0px',
                 boxSizing: 'border-box'
             }}>
-                <label for={id}>{name} {help && <span><span aria-label={help} tabIndex={0}>?</span></span>}</label>
+                <label for={id}>{name} {required && <b style={{ color: 'red', fontWeight: 500 }}>*</b>} {help && <span><span aria-label={help} tabIndex={0}>?</span></span>}</label>
                 <p>{description}</p>
                 <div className={styles.content} onFocus={startEdits} onBlur={finishEdits} onClick={e => (e.preventDefault(), inputRef.current.focus(), dropdownRef.current.scrollTop = 0, startEdits(), setSelected(0))} tabIndex={-1} onKeyDown={e => {
                     if (e.key == 'ArrowDown') {
@@ -202,6 +211,7 @@ export default function Select (props) {
                     ))}
                     <input placeholder={chips?.length == 0 ? 'Select' : ''} onChange={e => {
                         setLocalData(e.target.value);
+                        setSelected(0);
                         if (setData instanceof Function) setData(e.target.value);
                     }} onKeyDown={e => {
                         if (e.key == 'Backspace' && e.target.value?.length == 0) {
@@ -240,7 +250,21 @@ export default function Select (props) {
                 </div>
                 <span>✓</span>
                 <div className={styles.dropdown} ref={dropdownRef} tabIndex="-1" onFocus={() => inputRef.current.focus()} onMouseDown={startEdits}>
-                    {displayedChips.map(({ chip, isCustom }, i) => <Chip chipData={chip} {...{
+                    {displayAll ? displayedChips.map(({ chip, isCustom }, i) => <Chip chipData={chip} {...{
+                        forceUpdate,
+                        chips,
+                        setChips,
+                        multiSelect,
+                        presetChips,
+                        localData,
+                        isCustom,
+                        resetSelected,
+                        isSelected: selected == i,
+                        selectThisChip: () => setSelected(i),
+                        setActiveColor,
+                        setLocalData,
+                        startEdits
+                    }} />) : displayedChips.filter(({ isCustom }, i) => isCustom || i < 6 && localData?.length).map(({ chip, isCustom }, i) => <Chip chipData={chip} {...{
                         forceUpdate,
                         chips,
                         setChips,
@@ -255,6 +279,7 @@ export default function Select (props) {
                         setLocalData,
                         startEdits
                     }} />)}
+                    {!displayAll && !localData?.length && <div style={{ margin: '10px', dispaly: 'block' }}>Type to search.</div>}
                 </div>
             </div>
         </>

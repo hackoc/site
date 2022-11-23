@@ -22,7 +22,7 @@ export default function Text (props) {
                 margin: margin ?? '0px',
                 boxSizing: 'border-box'
             }}>
-                <label for={id}>{name} {help && <span><span aria-label={help} tabIndex={0}>?</span></span>}</label>
+                <label for={id}>{name} {required && <b style={{ color: 'red', fontWeight: 500 }}>*</b>} {help && <span><span aria-label={help} tabIndex={0}>?</span></span>}</label>
                 <p>{description}</p>
                 <input name={id} id={id} type={type} value={data} onChange={e => {
                     setLocalData(e.target.value);
