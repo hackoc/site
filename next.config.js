@@ -25,6 +25,12 @@ const nextConfig = {
         permanent: false
       },
       {
+        source: '/branding',
+        destination: 'https://www.figma.com/file/R1sQCpxFQqQ8laUmySwoZ3/Hack-OC-Branding-%7C-Public-Facing?node-id=0%3A1&t=sCjA6w0V7Q2b639x-1',
+        basePath: false,
+        permanent: false
+      },
+      {
         source: '/gh/:repo',
         destination: 'https://github.com/hackoc/:repo',
         basePath: false,

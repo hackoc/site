@@ -20,7 +20,7 @@ export default function Register() {
 
   const [key, setKey] = useState('');
   const [showForm, setShowForm] = useState(process.env.NODE_ENV !== "production" || key == process.env.NEXT_PUBLIC_KEY)
-  const handleFormEnter = () => { 
+  const handleFormEnter = () => {
     if (regex.test(email)) {
       fetch('https://ip.yodacode.xyz').then(res => res.json()).then(({ geo }) => {
         fetch('/api/v2', {
