@@ -94,7 +94,7 @@ export default function Register() {
     if (params?.key) setKey(params?.key);
     setShowForm(process.env.NODE_ENV !== "production" || key == process.env.NEXT_PUBLIC_KEY);
   }, []);
-  if (!showForm) return (
+  if (false) return (
     <>
       <div style={{
         width: '100vw',
