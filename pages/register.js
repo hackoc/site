@@ -34,15 +34,17 @@ export default function Register() {
     let valid = true;
     let missing = [];
     for (let i = 0; i < v.length; i++) {
-      const { required, verify } = v[i];
-      const value = formData[v[i].name];
-      if (!(
+      const { required, verify, name } = v[i];
+      const value = formData[name];
+      const isValid = (
         (required ? (value instanceof Array ? value.length : value) : true)
         &&
         (verify?.(value))
-      ) && v[i].special !== 'text') {
+      );
+      console.log(value, name, isValid)
+      if (!isValid && v[i].special !== 'text') {
         valid = false;
-        missing.push(v[i].name)
+        missing.push(name)
       }
     }
     return {valid,missing};
@@ -73,14 +75,14 @@ export default function Register() {
     try {
       const response = await fetch("/api/register", {
         method: "POST",
-        body: JSON.stringify({ email, captcha: captchaCode }),
+        body: JSON.stringify({ data: formData, captcha: captchaCode }),
         headers: {
           "Content-Type": "application/json",
         },
       });
       if (response.ok) {
         // If the response is ok than show the success alert
-        alert("Email registered successfully");
+        window.location.href = '/registration/success?name=' + encodeURIComponent(formData['Full Name']);
       } else {
         // Else throw an error with the message returned
         // from the API
@@ -92,8 +94,6 @@ export default function Register() {
     } finally {
       // Reset the reCAPTCHA when the request has failed or succeeeded
       // so that it can be executed again if user submits another email.
-      recaptchaRef.current.reset();
-      setEmail("");
     }
   };
 

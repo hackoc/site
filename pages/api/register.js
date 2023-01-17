@@ -6,7 +6,22 @@ const sleep = () => new Promise((resolve) => {
   }, 350);
 });
 
+export function dbConnect () {
+    return new Promise((resolve, reject) => {
+    const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = process.env.MONGODB_URI;
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+client.connect(err => {
+    if (err) return reject(err);
+  resolve(client);
+  // perform actions on the collection object
+});
+    });
+
+}
+
 export default async function handler(req, res) {
+    const dbPromise = dbConnect();
   const { body, method } = req;
 
   // Extract the email and captcha code from the request body
@@ -44,7 +59,10 @@ export default async function handler(req, res) {
       if (captchaValidation.success) {
         // Replace this with the API that will save the data received
         // to your backend
-        await sleep();
+        const client = await dbPromise;
+        const collection = client.db("primary").collection("signups");
+        console.log(await collection.insertOne(data));
+        client.close();
         // Return 200 if everything is successful
         return res.status(200).send("OK");
       }

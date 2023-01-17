@@ -12,6 +12,7 @@
   "dependencies": {
     "@hackclub/icons": "^0.0.9",
     "@splitbee/web": "^0.3.0",
+    "mongodb": "^4.13.0",
     "next": "12.2.5",
     "node-fetch": "^3.3.0",
     "react": "18.2.0",
