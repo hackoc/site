@@ -159,7 +159,7 @@ export default function Register() {
             </span>
             <span style={{ marginLeft: '-6px' }}>{' '}Registration</span>
           </h1>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={e => e.preventDefault()}>
             {sections.map((section, i) => {
               return (
                 <div style={{
@@ -293,7 +293,7 @@ fontSize: '1em',
 fontFamily: 'system-ui, Inter',
 padding: '0.5rem',
 cursor: 'pointer'
-            }}>Register</button>
+            }} onClick={handleSubmit}>Register</button>
             </div>
             </center>
           </form>
