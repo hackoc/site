@@ -209,7 +209,7 @@ export default function Select (props) {
                             setChips(theseChips);
                         }}>×</span></span>
                     ))}
-                    <input placeholder={chips?.length == 0 ? 'Select' : ''} onChange={e => {
+                    <input placeholder={chips?.length == 0 ? (placeholder ?? 'Select') : ''} onChange={e => {
                         setLocalData(e.target.value);
                         setSelected(0);
                         if (setData instanceof Function) setData(e.target.value);
