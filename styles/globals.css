@@ -47,3 +47,40 @@ a {
 .color-white {
   color: white;
 }
+
+.tooltipped:after {
+  opacity: 0;
+  color: white;
+  letter-spacing: 0;
+  line-height: 1.375;
+  transform: translateY(50%);
+  box-shadow: 0 0 2px 0 #00000010,
+    0 4px 8px 0 #00000020;
+  content: attr(aria-label);
+  z-index: 10;
+  left: 100%;
+  bottom: 50%;
+  min-height: 20px;
+  position: absolute;
+  padding: 0.25rem 0.75rem;
+  background-color: #000000df;
+  border-radius: 6px;
+  font-family: Inter;
+  font-size: 14px;
+  max-width: 240px;
+  font-weight: 500;
+  transition: 0.15s all ease;
+  width: max-content;
+  height: min-content;
+  right: 0;
+  pointer-events: none;
+  word-wrap: break-word;
+  text-align: center;
+  margin-left: 0.5rem;
+}
+
+.tooltipped:hover:after {
+  outline: none;
+  z-index: 9;
+  opacity: 1;
+}

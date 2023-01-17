@@ -21,6 +21,39 @@ export default function Register() {
   const [modal, setModal] = useState(false);
   const recaptchaRef = createRef();
 
+  const [formData, setFormData] = useState({});
+
+  function setValue (name, value) {
+    let newFormData = JSON.parse(JSON.stringify(formData))
+    newFormData[name] = value;
+    setFormData(newFormData);
+  }
+
+  function validate () {
+    const v = Object.values(questions); 
+    let valid = true;
+    let missing = [];
+    for (let i = 0; i < v.length; i++) {
+      const { required, verify } = v[i];
+      const value = formData[v[i].name];
+      if (!(
+        (required ? (value instanceof Array ? value.length : value) : true)
+        &&
+        (verify?.(value))
+      ) && v[i].special !== 'text') {
+        valid = false;
+        missing.push(v[i].name)
+      }
+    }
+    return {valid,missing};
+  }
+
+  const [valid, setValid] = useState(validate());
+
+  useEffect(() => {
+    setValid(validate());
+  }, [formData]);
+
   const [key, setKey] = useState('');
   const [showForm, setShowForm] = useState(true);
   const [captchaCode, setCaptchaCode] = useState(null);
@@ -65,25 +98,6 @@ export default function Register() {
   };
 
 
-  const handleFormEnter = () => {
-    if (regex.test(email)) {
-      fetch('https://ip.yodacode.xyz').then(res => res.json()).then(({ geo }) => {
-        fetch('/api/v2', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            email,
-            city: geo.city
-          })
-        }).then(() => {
-          window.location.href = '/start?email=' + email;
-          setSubmitted(true);
-        });
-      })
-    }
-  };
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   useEffect(() => {
@@ -214,6 +228,7 @@ export default function Register() {
                                 }}>
                                   {(question.special == 'multiSelect' || question.special == 'select') ?
                                     <Select {...{
+                                      setValue,
                                       options: question.options,
                                       multi: question.special == 'multiSelect',
                                       name: question.name,
@@ -234,6 +249,7 @@ export default function Register() {
                                     }} /> :
                                       <Text {...{
                                         name: question.name,
+                                        setValue,
                                         description: question.description,
                                         help: question.help,
                                         width: 'min(calc(100% - 20px), 400px)',
@@ -292,8 +308,10 @@ borderStyle: 'solid',
 fontSize: '1em',
 fontFamily: 'system-ui, Inter',
 padding: '0.5rem',
-cursor: 'pointer'
-            }} onClick={handleSubmit}>Register</button>
+cursor: valid.valid ? 'pointer' : 'default'
+            }} onClick={valid.valid ? handleSubmit : () => {
+
+            }} aria-label="a" className="tooltipped" disabled={!valid.valid}>{valid.valid ? 'Register' : `${valid.missing.length} incomplete field${valid.missing.length == 1 ? '' : 's'}`}</button>
             </div>
             </center>
           </form>

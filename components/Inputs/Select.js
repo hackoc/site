@@ -104,7 +104,7 @@ export function Chip ({ chipData: chip, forceUpdate, chips, setChips, multiSelec
 }
 
 export default function Select (props) {
-    const { multi, options = [], special, validate: _validate, name, description, help, placeholder, data, setData, initialData, wrapperClass, width, margin, type, id: _id, required, dontDisplayAll } = props;
+    const { setValue, multi, options = [], special, validate: _validate, name, description, help, placeholder, data, setData, initialData, wrapperClass, width, margin, type, id: _id, required, dontDisplayAll } = props;
 
     const displayAll = !dontDisplayAll;
 
@@ -132,6 +132,10 @@ export default function Select (props) {
 
     const [chips, setChips] = useState([
     ]);
+
+    useEffect(() => {
+        setValue(name, chips.map(c => c.name));
+    }, [chips]);
 
     const [activeColor, setActiveColor] = useState(0);
 
@@ -201,7 +205,7 @@ export default function Select (props) {
                     }
                 }}>
                     {chips.map(chip => (
-                        <span onMouseDown={e => e.preventDefault()} data-color={chip.color} className={styles.chip} key={chip.id}>{chip.name} <span className={styles.close} onClick={e => {
+                        <span onMouseDown={e => e.preventDefault()} data-color={chip.color} className={styles.chip} key={chip.id + chip.name + chip.color}>{chip.name} <span className={styles.close} onClick={e => {
                             let index = 0;
                             chips.forEach((c, i) => (c.id == chip.id ? index = i : 0));
                             let theseChips = JSON.parse(JSON.stringify(chips));
