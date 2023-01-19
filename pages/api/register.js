@@ -20,6 +20,26 @@ client.connect(err => {
 
 }
 
+async function email (email, name) {
+  const res = await fetch('https://api.hackoc.org/mail/v1/authed/deliver/register', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${process.env.MAIL_KEY}`
+    },
+    body: JSON.stringify({
+      data: {
+        firstName: name.split(' ')[0],
+        email
+      }
+    })
+  });
+  const json = await res.json();
+  console.log(json);
+  return json;
+}
+
+
 export default async function handler(req, res) {
     const dbPromise = dbConnect();
   const { body, method } = req;
@@ -64,6 +84,7 @@ export default async function handler(req, res) {
         console.log(await collection.insertOne(data));
         client.close();
         // Return 200 if everything is successful
+        await email(data["Email"], data["Full Name"]);
         return res.status(200).send("OK");
       }
 

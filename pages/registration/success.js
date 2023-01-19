@@ -2,6 +2,9 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import Modal from '../../components/Modal';
 
+function sendEmail () {
+    // fetch('http://mail2.hackoc.org')
+}
 
 export default function Success () {
     const [name, setName] = useState('');
