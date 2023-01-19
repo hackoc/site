@@ -21,11 +21,12 @@ client.connect(err => {
 }
 
 async function email (email, name) {
+  const token = `Bearer ${process.env.MAIL_KEY}`;
   const res = await fetch('https://api.hackoc.org/mail/v1/authed/deliver/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${process.env.MAIL_KEY}`
+      'Authorization': token
     },
     body: JSON.stringify({
       data: {
@@ -84,7 +85,12 @@ export default async function handler(req, res) {
         console.log(await collection.insertOne(data));
         client.close();
         // Return 200 if everything is successful
+        try {
         await email(data["Email"], data["Full Name"]);
+        } catch (err) {
+
+      return res.status(422).json({ message: "We had trouble sending you an email. Please report this error." });
+        }
         return res.status(200).send("OK");
       }
 
