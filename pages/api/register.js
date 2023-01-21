@@ -82,6 +82,10 @@ export default async function handler(req, res) {
         // to your backend
         const client = await dbPromise;
         const collection = client.db("primary").collection("signups");
+        const existingRecord = (await collection.findOne({
+          Email: data["Email"]
+        }));
+        if (existingRecord) return res.status(422).json({ message: "This email has already registered for Hack OC." });
         console.log(await collection.insertOne(data));
         client.close();
         // Return 200 if everything is successful
