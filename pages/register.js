@@ -190,6 +190,10 @@ export default function Register() {
             </span>
             <span style={{ marginLeft: '-6px' }}>{' '}Registration</span>
           </h1>
+          <h2 style={{
+            textAlign: 'center',
+            color: '#444'
+          }}>March 18th • Anduril HQ • 9am-9pm</h2>
           <form onSubmit={e => e.preventDefault()}>
             {sections.map((section, i) => {
               return (
