@@ -20,8 +20,8 @@ export default function Home() {
   const handleFormEnter = () => { 
     if (regex.test(email) && !loading) {
       
+      setLoading(true);
       fetch('https://ip.yodacode.xyz').then(res => res.json()).then(({ geo }) => {
-        setLoading(true);
         splitbee.track("Email Subscribe", {
           email,
           city: geo.city
