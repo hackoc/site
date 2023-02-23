@@ -19,6 +19,7 @@ export default function Home() {
   const [modal, setModal] = useState(false);
   const handleFormEnter = () => { 
     if (regex.test(email) && !loading) {
+      return window.location.href = '/register?email=' + encodeURIComponent(email);
       
       setLoading(true);
       fetch('https://ip.yodacode.xyz').then(res => res.json()).then(({ geo }) => {
@@ -154,7 +155,7 @@ export default function Home() {
           position: 'relative',
           height: '55px'
         }}>
-          <p style={{opacity: submitted ? 1 : 0.7, color: submitted ? 'rgb(34, 191, 116)' : 'white'}}>{submitted ? 'Thank you! Expect to hear from us soon. 👀' : 'Be the first to hear when registration opens!'}</p>
+          <p style={{opacity: submitted ? 1 : 0.7, color: submitted ? 'rgb(34, 191, 116)' : 'white'}}>{submitted ? 'Loading...' : 'Registration is now open!'}</p>
           {!submitted &&
         <center className={styles.inputCenter} style={{
           display: 'block',
@@ -230,6 +231,7 @@ export default function Home() {
 
           </center>
 }
+          <em style={{marginTop: '56px', display: 'inline-block', opacity: submitted ? 1 : 0.7, color: submitted ? 'rgb(34, 191, 116)' : 'white'}}>(+8 more fields)</em>
           </center>
         </div>
 

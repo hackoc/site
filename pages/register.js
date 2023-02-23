@@ -33,6 +33,7 @@ export default function Register() {
     setFormData(newFormData);
   }
 
+
   function validate () {
     const v = Object.values(questions); 
     let valid = true;
@@ -193,7 +194,7 @@ export default function Register() {
           <h2 style={{
             textAlign: 'center',
             color: '#444'
-          }}>March 18th • Anduril HQ • 9am-9pm</h2>
+          }}>April 1st • Anduril HQ • 9am-9pm</h2>
           <form onSubmit={e => e.preventDefault()}>
             {sections.map((section, i) => {
               return (
