@@ -21,7 +21,11 @@ export default function Text (props) {
     }, [localData]);
 
         function updateEmail (newEmail) {
-            ref.current.value = newEmail;
+            // ref.current.value = newEmail;
+            setLocalData(newEmail);
+            setPartiallyValid(validate(newEmail));
+            setValid(validate(newEmail));
+
         }
 
         var router = useRouter();
@@ -41,7 +45,7 @@ export default function Text (props) {
             }}>
                 <label for={id}>{name} {required && <b style={{ color: 'red', fontWeight: 500 }}>*</b>} {help && <span><span aria-label={help} tabIndex={0}>?</span></span>}</label>
                 <p>{description}</p>
-                <input ref={ref} name={id} id={id} type={type} value={data} onChange={e => {
+                <input ref={ref} name={id} id={id} type={type} value={localData} onChange={e => {
                     console.log(e.target.value);
                     console.log(validate, validate(e.target.value));
                     console.log(_validate(e.target.value));
