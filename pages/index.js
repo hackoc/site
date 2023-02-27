@@ -366,7 +366,6 @@ export default function Home() {
           
 
         </div>
-
         <div className={styles.content} style={{
           position: 'relative'
         }}>
@@ -378,20 +377,60 @@ export default function Home() {
           <p>Hackathons are in-person coding events where teenagers come together to learn new skills, create fun projects, and make memories. There's also food, snacks, and drinks to fuel your creativity. Instead of hacking bank accounts like you hear in the news, you'll build something meaningful to you.</p>
           <h2>Who can participate in Hack OC?</h2>
           <p>We're inviting all high school students to participate in Hack OC <span>completely free</span>. If you'd still like to support us, however, <a href="#" onClick={e => { e.preventDefault(); setModal(true); splitbee.track("Donate Click", { location: 'copy' }); }}>you can donate here</a>. Since this hackathon is geared toward just high school students, we aren't allowing any college students or older to participate.</p>
-          <h2>Will there be prizes? 👀</h2>
-          <p>Yes! We're thrilled about them and can't wait to make an announcement soon. More about judging and prizes will be shared closer to the event. Why not <a href="#" style={{ textDecoration: 'underline', color: 'var(--orange)' }} data-splitbee-event="Interaction" data-splitbee-event-type="scroll-to-top">drop your email</a> so we can let you know? We promise it's worth your time!</p>
           </div>
 
-      <img src="/orange.png" style={{
+      <img src="/orange.png" style={with$('nodrag', 'noselect', {
         position: 'absolute',
         bottom: '-20px',
         right: '-40px',
         width: '300px',
         zIndex: '15',
         filter: 'opacity(0.7)'
-      }} />
+      })} />
+      
         </div>
 
+      <div style={{
+        overflowY: 'scroll',
+        background: 'white',
+        borderTop: '5px solid var(--orange)',
+        color: 'black',
+
+      }} className={styles.content}>
+      <h2 style={{ color: 'black' }}>Questions?</h2>
+      <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
+          gridGap: cardGap,
+          margin: '0 auto',
+          paddingBottom: '30px',
+          paddingLeft: '-30px',
+          paddingRight: '-30px',
+          maxWidth: `calc(calc(300px * 3) + ${cardGap} * 3 + 60px + 200px)`
+        }}>
+          {Object.entries({
+            'Question1': 'Answer1',
+            'Question2': 'Answer2',
+            'Question3': 'Answer3',
+            'Question4': 'Answer4',
+            'Question5': 'Answer5',
+            'Question6': 'Answer6'
+          }).map(([title, content]) => (
+            <BaseCard style={{
+              padding: '20px'
+            }}>
+              <h3 style={{
+                marginTop: '0px',
+                fontWeight: '500'
+              }}>{title}</h3>
+              <p style={{
+                fontWeight: '350',
+                marginBottom: '0px'
+              }}>{content}</p>
+            </BaseCard>
+          ))}
+          </div>
+        </div>
       </main>
       <div className={styles.sponsors} style={{
         overflowY: 'scroll'
