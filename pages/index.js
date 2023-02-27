@@ -4,6 +4,8 @@ import Icon from '@hackclub/icons'
 import Modal from '../components/Modal'
 import { useEffect, useState } from 'react';
 import splitbee from '@splitbee/web';
+import with$, { withNodrag } from '../utils/cssUtils';
+import useMedia, { useViewport } from '../utils/useMedia';
 
 const meta_desc = "Orange County's first high school coding event since the pandemic. Join us for 12 hours of hacking, workshops, & friendship.";
 const theme_color = '#FA7B33';
@@ -14,6 +16,77 @@ const regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)
 // const timelapseId = "9x00RCb1N7WTpAl6cIN0000Kult00vyzslROW6A1RblWwxM"
 
 const timelapseId = "402YMZJfp6kW02302E3r1RMe013Ub9AqlPwzr4VjD00HO7ME"
+
+export function BaseCard ({ children, style }) {
+  return (
+    <div style={{
+      background: 'rgba(var(--orange-3-values), 0.3)',
+      padding: '1rem',
+      borderRadius: '6px',
+      ...(style ? style : {}),
+      }}>
+      {children}
+    </div>
+  )
+}
+
+export function ImageCard ({ style, src, alt, caption, left }) {
+  return (
+    <BaseCard style={{
+
+      position: 'relative',
+      ...(style ? style : {}),
+    }}>
+      <img src={src} alt={alt} style={with$('noselect', 'nodrag', {
+        margin: '-1rem',
+        width: 'calc(100% + 2rem)',
+        height: 'calc(100% + 2rem)',
+        boxSizing: 'border-box',
+        borderRadius: '6px',
+      })} />
+      {caption && <p style={{
+        fontSize: '1.2rem',
+        position: 'absolute',
+        color: 'white',
+        bottom: '10px',
+        margin: '10px',
+        ...(left ? { left: '0px' } : { right: '10px' }),
+      }}>{caption}</p>}
+    </BaseCard>
+  )
+}
+
+export function Card ({ title, icon, children, style }) {
+  return (
+
+    <BaseCard style={style}>
+      <span style={{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+
+
+      }}>
+
+      
+      <h1 style={{
+        margin: '0px',
+        display: 'inline-block',
+        verticalAlign: 'middle'
+      }}>{title}</h1>
+                  <Icon style={{
+                    display: 'inline-block'
+                  }} glyph={icon} size={50} color="#fa7b33" />
+
+      </span>
+      <p style={{
+        fontSize: '1.4rem',
+      }}>{children}</p>
+
+    </BaseCard>
+  )
+}
 
 export default function Home() {
   const [modal, setModal] = useState(false);
@@ -48,6 +121,12 @@ export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [donor, setDonor] = useState('');
+
+  const { width, height } = useMedia();
+
+  const cardSize = '380px';
+  const cardGap = '20px';
+
   useEffect(() => {
     fetch('/api/donor').then(res => res.text()).then(setDonor);
     if (!localStorage.getItem('hackoc-analytics')) {
@@ -231,7 +310,6 @@ export default function Home() {
 
           </center>
 }
-          <em style={{marginTop: '56px', display: 'inline-block', opacity: submitted ? 1 : 0.7, color: submitted ? 'rgb(34, 191, 116)' : 'white'}}>(+8 more fields)</em>
           </center>
         </div>
 
@@ -243,7 +321,59 @@ export default function Home() {
             zIndex: '20'
           }} className={styles.innerContent}>
           <h2>What's Hack OC?</h2>
-          <p>Hack OC is the first in-person high school hackathon after the pandemic in Orange County, California. We're inviting you and all high schoolers to participate in <span>12 hours</span> of <span>coding</span>, <span>building</span>, <span>learning</span>, and <span>sharing</span>. Whether you're technical and experienced or haven't ever written a line of code, Hack OC will be a fun and welcoming event for everyone.</p>
+          <p>Hack OC is the first in-person high school hackathon after the pandemic in Orange County, California. We're inviting all high schoolers to participate in <span>12 hours</span> of <span>coding</span>, <span>building</span>, <span>learning</span>, and <span>fun</span>. Whether you're technical and experienced or haven't ever written a line of code, Hack OC will be a fun and welcoming event for everyone.</p>
+
+          </div>
+          </div>
+                  {/* 3 columns on large screens, 2 on medium, 1 on small */}
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(' + cardSize + ', 1fr))',
+          gridGap: cardGap,
+          padding: '30px',
+          margin: '0 auto',
+          maxWidth: `calc(calc(${cardSize} * 2) + ${cardGap} + 60px + 200px)`
+        }}>
+          
+            <Card title="Build something" icon="idea">
+              By the end, you’ll have built something new and unique with your team.
+            </Card>
+            <ImageCard src="/social.png" caption="Placeholder image" />
+
+            {width((
+              <>
+                <Card title="Learn new skills" icon="code">
+                  Whether you're new to coding or a seasoned developer, you'll learn new skills and technologies at our workshops.
+                </Card>
+                <ImageCard src="/social.png" caption="Placeholder image" />
+              </>
+            ), 840, (
+              <>
+                <ImageCard src="/social.png" caption="Placeholder image" />
+                <Card title="Learn new skills" icon="code">
+                  Whether you're new to coding or a seasoned developer, you'll learn new skills and technologies at our workshops.
+                </Card>
+              </>
+            ))}
+            <Card title="Make connections" icon="person">
+              You'll meet other hackers and programmers from all over Orange County.
+            </Card>
+            <Card title="Have fun" icon="sticker">
+              Hack OC has stickers, swag, food, and prizes to make your time coding exciting and fun.
+            </Card>
+
+          
+
+        </div>
+
+        <div className={styles.content} style={{
+          position: 'relative'
+        }}>
+          <div style={{
+            position: 'relative',
+            zIndex: '20'
+          }} className={styles.innerContent}>
           <h2>What's a "hackathon"?</h2>
           <p>Hackathons are in-person coding events where teenagers come together to learn new skills, create fun projects, and make memories. There's also food, snacks, and drinks to fuel your creativity. Instead of hacking bank accounts like you hear in the news, you'll build something meaningful to you.</p>
           <h2>Who can participate in Hack OC?</h2>
@@ -266,12 +396,18 @@ export default function Home() {
       <div className={styles.sponsors} style={{
         overflowY: 'scroll'
       }}>
-        <a href="/register" disabled={"true"} target="_blank" onClick={e => e.preventDefault()}>
+        <a href="/register" target="_blank">
           <button className={styles.altButton} style={{
-            background:  'rgba(var(--orange-3-values), 0.3)',
-            cursor: 'default',
-            transform: 'translate(0px, 0px)'
-          }}>Sign-Ups Open Soon!</button>
+            background:  'rgba(var(--orange-3-values), 1)',
+            position: 'relative',
+          }}>Register
+            <Icon glyph="external" style={{
+              position: 'absolute',
+              right: '1rem',
+              top: '50%',
+              transform: 'translateY(-50%)'
+            }} />
+          </button>
         </a>
         <button className={styles.altButton} onClick={() => {
           setModal(true);

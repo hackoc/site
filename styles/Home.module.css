@@ -250,11 +250,15 @@
   color: white;
   cursor: pointer;
   font-family: var(--font-stack);
-  transition: 0.3s all;
+  transition: 0.3s transform, 0.08s box-shadow;
 }
 
 .altButton:hover {
   transform: translateY(-4px);
+}
+
+.altButton:active {
+  box-shadow: 0 0 0 3px rgba(var(--orange-3-values), 0.5);
 }
 
 .input {
