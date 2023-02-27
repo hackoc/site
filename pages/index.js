@@ -329,7 +329,7 @@ export default function Home() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(' + cardSize + ', 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(' + cardSize + ', 100%), 1fr))',
           gridGap: cardGap,
           padding: '30px',
           margin: '0 auto',
