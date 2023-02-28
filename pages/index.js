@@ -230,6 +230,21 @@ export default function Home() {
             </b>
           </span>'s First Post-Pandemic Hackathon
         </p>
+        <p className={styles.description} style={{
+          marginTop: '-16px'
+        }}>
+          <span style={{
+            color: '#ccc'
+          }}>
+            <b>
+              <Icon glyph="event-code" size={32} style={{
+                transform: 'translate(2px, 6px)',
+                marginRight: '6px'
+              }} />
+              April 1st 9am-9pm
+            </b>
+          </span> at Anduril
+        </p>
         <center style={{
           position: 'relative',
           height: '55px'
