@@ -355,7 +355,7 @@ display: 'flex',
 gap: '8px',
 cursor: 'pointer',
             }} aria-label="a" className="tooltipped" type="button" onClick={(() => {
-              window.open('http://localhost:3008/onboarding', '', 'width=500,height=700,top=100,left=100');
+              window.open('https://discord.api.hackoc.org/onboarding', '', 'width=500,height=700,top=100,left=100');
             })}>{discordTag ? (
               <>
               <Icon glyph="checkmark" size="20px" />
