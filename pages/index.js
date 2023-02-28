@@ -409,12 +409,24 @@ export default function Home() {
           maxWidth: `calc(calc(300px * 3) + ${cardGap} * 3 + 60px + 200px)`
         }}>
           {Object.entries({
-            'Question1': 'Answer1',
-            'Question2': 'Answer2',
-            'Question3': 'Answer3',
-            'Question4': 'Answer4',
-            'Question5': 'Answer5',
-            'Question6': 'Answer6'
+            'Can I join?': <>
+              If you're in middle school or high school, yes, you can attend! If you're unsure or have questions, shoot us a message at <a href="mailto:team@hackoc.org">team@hackoc.org</a>.
+            </>,
+            'What can I make?': <>
+              Anything! Apps, games, websites, art, and hardware projects are all welcome. Check out what <a href="https://hackclub.com/ship" target="_blank">other hackers are making</a>.
+            </>,
+            'How much does it cost?': <>
+              Nothing! Hack OC is free for all attendees. We'll cover meals, snacks, swag, and prizes, as well as other fun mini-events.
+            </>,
+            'Who is judging?': <>
+              Judging is done by the people that matter most– the attendees. When it's time for demo, you'll get to vote for your favorite projects in each category.
+            </>,
+            'I\'m not that good at coding...': <>
+              Everybody starts somewhere! At Hack OC, we'll have workshops and mentors to help you learn new skills and build something awesome. If you want to explore some resources before the event, check out <a href="https://hackclub.com/workshops" target="_blank">Hack Club's Workshops</a>.
+            </>,
+            'Is there anything in place to help prevent COVID-19 from spreading?': <>
+              We'll screen for COVID-19 symptoms before the event, and we'll have hand sanitizer and masks available for all attendees. Masks are not required, but they are strongly recommended.
+            </>
           }).map(([title, content]) => (
             <BaseCard style={{
               padding: '20px'
