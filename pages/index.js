@@ -339,18 +339,18 @@ export default function Home() {
             <Card title="Build something" icon="idea">
               By the end, you’ll have built something new and unique with your team.
             </Card>
-            <ImageCard src="/social.png" caption="Placeholder image" />
+            <ImageCard src="https://cloud-hmw10hgy3-hack-club-bot.vercel.app/0hack_club_assemble_ltnj_01371.jpg" caption="Hackers collaborating on a project" />
 
             {width((
               <>
                 <Card title="Learn new skills" icon="code">
                   Whether you're new to coding or a seasoned developer, you'll learn new skills and technologies at our workshops.
                 </Card>
-                <ImageCard src="/social.png" caption="Placeholder image" />
+                <ImageCard src="https://cloud-6fqxfny8b-hack-club-bot.vercel.app/0hack_club_assemble_ltnj_01770.jpg" caption="Workshop at Assemble in 2022" left={true} />
               </>
             ), 840, (
               <>
-                <ImageCard src="/social.png" caption="Placeholder image" />
+                <ImageCard src="https://cloud-6fqxfny8b-hack-club-bot.vercel.app/0hack_club_assemble_ltnj_01770.jpg" caption="Workshop at Assemble in 2022" left={true} />
                 <Card title="Learn new skills" icon="code">
                   Whether you're new to coding or a seasoned developer, you'll learn new skills and technologies at our workshops.
                 </Card>
@@ -473,6 +473,9 @@ export default function Home() {
           <button className={styles.altButton}>GitHub</button>
         </a>
         <h1>Sponsors</h1>
+        <a href="https://vercel.com">
+        <img className={styles.sponsor} src="https://cdn.sanity.io/images/z5s3oquj/production/ed722e0559833f0a6d4e33c83bcc74f4f1add21a-1000x194.png" />
+        </a>
         <p>Hack OC wouldn't be possible without help from our sponsors. Want to help make Hack OC incredible? Email us at <a href="mailto:team@hackoc.org" style={{ color: 'var(--orange)', textDecoration: 'underline' }} data-splitbee-event="Email Click" data-splitbee-event-location="sidebar">team@hackoc.org</a> or check out our <a href="/prospectus" style={{ color: 'var(--orange)', textDecoration: 'underline' }} target="_blank" onClick={e => {
           e.preventDefault();
           splitbee.track("Prospectus Download", {
