@@ -14,6 +14,10 @@ const nextConfig = {
 	      source: "/_hive/:slug",
 	      destination: "https://hive.splitbee.io/:slug",
 	    },
+      {
+        source: '/registration/link-discord/callback',
+        destination: '/api/discord/link',
+      }
 	  ];
   },
   redirects: async () => {
