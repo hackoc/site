@@ -22,7 +22,6 @@ const timelapseId = "9x00RCb1N7WTpAl6cIN0000Kult00vyzslROW6A1RblWwxM"
 // const timelapseId = "402YMZJfp6kW02302E3r1RMe013Ub9AqlPwzr4VjD00HO7ME"
 
 export default function Register() {
-  useProtection();
 
   const [modal, setModal] = useState(false);
   const recaptchaRef = createRef();
@@ -170,6 +169,7 @@ export default function Register() {
   );
   const isDiscordMissing = !discordTag;
   const missingLength = valid.missing.length + (isDiscordMissing ? 1 : 0);
+
   return (
     <>
     <Head>
