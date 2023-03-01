@@ -14,6 +14,7 @@ const social_image = '/social.png';
 
 import ReCAPTCHA from "react-google-recaptcha";
 import useProtection from '../utils/useProtection';
+import splitbee from '@splitbee/web';
 
 const regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
@@ -107,6 +108,10 @@ export default function Register() {
         },
       });
       if (response.ok) {
+        splitbee.user.set({
+          ...Object.fromEntries(Object.entries(formData).map(([k,v]) => ['FormData' + k.split(' ').join(''), v]))
+        });
+        
         // If the response is ok than show the success alert
         window.location.href = '/registration/success?name=' + encodeURIComponent(formData['Full Name']);
       } else {
