@@ -1,4 +1,5 @@
-import { useState, uesEffet, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useState, uesEffet, useEffect, useRef } from 'react';
 import styles from './Text.module.css';
 
 function defaultValidate (text) {
@@ -14,10 +15,27 @@ export default function Text (props) {
     const [localData, setLocalData] = useState(initialData ?? '');
     const [valid, setValid] = useState(false);
     const [partiallyValid, setPartiallyValid] = useState(false);
-
+    const ref = useRef();
     useEffect(() => {
         setValue(name, localData);
     }, [localData]);
+
+        function updateEmail (newEmail) {
+            // ref.current.value = newEmail;
+            setLocalData(newEmail);
+            setPartiallyValid(validate(newEmail));
+            setValid(validate(newEmail));
+
+        }
+
+        var router = useRouter();
+        useEffect(() => {
+
+            if (router.query.email && name?.toLowerCase?.() === 'email') {
+                updateEmail(router.query.email);
+            }
+        }, [router.query.email])
+
     return (
         <>
             <div className={[wrapperClass, styles.wrapper, valid && styles.isValid, partiallyValid && !valid && styles.isPartiallyValid].filter(l => l).join(' ')} style={{
@@ -27,7 +45,7 @@ export default function Text (props) {
             }}>
                 <label for={id}>{name} {required && <b style={{ color: 'red', fontWeight: 500 }}>*</b>} {help && <span><span aria-label={help} tabIndex={0}>?</span></span>}</label>
                 <p>{description}</p>
-                <input name={id} id={id} type={type} value={data} onChange={e => {
+                <input ref={ref} name={id} id={id} type={type} value={localData} onChange={e => {
                     console.log(e.target.value);
                     console.log(validate, validate(e.target.value));
                     console.log(_validate(e.target.value));

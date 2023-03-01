@@ -13,6 +13,7 @@ const theme_color = '#FA7B33';
 const social_image = '/social.png';
 
 import ReCAPTCHA from "react-google-recaptcha";
+import useProtection from '../utils/useProtection';
 
 const regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
@@ -21,6 +22,7 @@ const timelapseId = "9x00RCb1N7WTpAl6cIN0000Kult00vyzslROW6A1RblWwxM"
 // const timelapseId = "402YMZJfp6kW02302E3r1RMe013Ub9AqlPwzr4VjD00HO7ME"
 
 export default function Register() {
+  useProtection();
 
   const [modal, setModal] = useState(false);
   const recaptchaRef = createRef();
@@ -32,6 +34,7 @@ export default function Register() {
     newFormData[name] = value;
     setFormData(newFormData);
   }
+
 
   function validate () {
     const v = Object.values(questions); 
@@ -63,6 +66,22 @@ export default function Register() {
   const [key, setKey] = useState('');
   const [showForm, setShowForm] = useState(true);
   const [captchaCode, setCaptchaCode] = useState(null);
+  const [discordTag, setDiscordTag] = useState('');
+  const [discordId, setDiscordId] = useState('');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const tag = localStorage.getItem('hoc-discord-tag');
+      const id = localStorage.getItem('hoc-discord-id');
+      const ts = localStorage.getItem('hoc-discord-ts');
+
+      if (tag && id && ts && (Date.now() - ts < 1000 * 5)) {
+        setDiscordTag(tag);
+        setDiscordId(id);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
 
   // const handleSubmit = (event) => {
@@ -79,7 +98,11 @@ export default function Register() {
     try {
       const response = await fetch("/api/register", {
         method: "POST",
-        body: JSON.stringify({ data: formData, captcha: captchaCode }),
+        body: JSON.stringify({ data: {
+          ...formData,
+          ['Discord Tag']: discordTag,
+          ['Discord ID']: discordId,
+        }, captcha: captchaCode }),
         headers: {
           "Content-Type": "application/json",
         },
@@ -145,6 +168,8 @@ export default function Register() {
       </div>
     </>
   );
+  const isDiscordMissing = !discordTag;
+  const missingLength = valid.missing.length + (isDiscordMissing ? 1 : 0);
   return (
     <>
     <Head>
@@ -190,6 +215,10 @@ export default function Register() {
             </span>
             <span style={{ marginLeft: '-6px' }}>{' '}Registration</span>
           </h1>
+          <h2 style={{
+            textAlign: 'center',
+            color: '#444'
+          }}>April 1st • Anduril HQ • 9am-9pm</h2>
           <form onSubmit={e => e.preventDefault()}>
             {sections.map((section, i) => {
               return (
@@ -300,6 +329,42 @@ export default function Register() {
                         marginLeft: '20px',
                         marginTop: '-1rem'
                       }}>
+                      <Title {...{
+                                    name: 'Discord Account',
+                                    description: `Link your Discord account and join the Hack OC server for team formation, updates, project submissions, and more!`,
+                                    width: 'min(calc(100% - 20px), 400px)',
+                                    required: true
+                                  }} />
+                                  <div style={{
+                                    marginTop: '2rem',
+                                    marginBottom: '2rem'
+                                  }}>
+                                    <button style={{
+
+marginBottom: '4rem',
+borderRadius: '0.25rem',
+borderColor: '#414bb1',
+borderWidth: '2px',
+borderStyle: 'solid',
+fontSize: '1em',
+fontFamily: 'system-ui, Inter',
+padding: '0.5rem',
+backgroundColor: '#5865f2',
+color: 'white',
+display: 'flex',
+gap: '8px',
+cursor: 'pointer',
+            }} aria-label="a" className="tooltipped" type="button" onClick={(() => {
+              window.open('https://discord.api.hackoc.org/onboarding', '', 'width=500,height=700,top=100,left=100');
+            })}>{discordTag ? (
+              <>
+              <Icon glyph="checkmark" size="20px" />
+              {' '}{discordTag}
+              </>
+            ) : (
+              'Link Discord Account'
+            )}</button>
+                                    </div>
                         <Title {...{
                                       name: 'Confirm You\'re Human',
                                       description: `We don't have anything against robots, but only humans can attend Hack OC.`,
@@ -325,10 +390,10 @@ borderStyle: 'solid',
 fontSize: '1em',
 fontFamily: 'system-ui, Inter',
 padding: '0.5rem',
-cursor: valid.valid ? 'pointer' : 'default'
-            }} onClick={valid.valid ? handleSubmit : () => {
+cursor: (valid.valid && !isDiscordMissing) ? 'pointer' : 'default'
+            }} onClick={(valid.valid && !isDiscordMissing) ? handleSubmit : () => {
 
-            }} aria-label="a" className="tooltipped" disabled={!valid.valid}>{valid.valid ? 'Register' : `${valid.missing.length} incomplete field${valid.missing.length == 1 ? '' : 's'}`}</button>
+            }} aria-label="a" className="tooltipped" disabled={!(valid.valid && !isDiscordMissing)}>{(valid.valid && !isDiscordMissing) ? 'Register' : `${missingLength} incomplete field${missingLength == 1 ? '' : 's'}`}</button>
             </div>
             </center>
           </form>
