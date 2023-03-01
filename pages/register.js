@@ -96,6 +96,9 @@ export default function Register() {
       return;
     }
     try {
+      await splitbee.user.set({
+        ...Object.fromEntries(Object.entries(formData).map(([k,v]) => ['FormData' + k.split(' ').join(''), v]))
+      });
       const response = await fetch("/api/register", {
         method: "POST",
         body: JSON.stringify({ data: {
@@ -108,9 +111,6 @@ export default function Register() {
         },
       });
       if (response.ok) {
-        splitbee.user.set({
-          ...Object.fromEntries(Object.entries(formData).map(([k,v]) => ['FormData' + k.split(' ').join(''), v]))
-        });
         
         // If the response is ok than show the success alert
         window.location.href = '/registration/success?name=' + encodeURIComponent(formData['Full Name']);
