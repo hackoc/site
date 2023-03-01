@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-export function useProtection () {
+export function useProtection (showWarning = true) {
    return useEffect(() => {
-        window.onbeforeunload = () => true;
+        window.onbeforeunload = () => showWarning;
     }, []);
 }
 
