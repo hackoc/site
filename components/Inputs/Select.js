@@ -80,11 +80,11 @@ export function Chip ({ chipData: chip, forceUpdate, chips, setChips, multiSelec
                 let thesePresetChips = JSON.parse(JSON.stringify(presetChips));
                 let theseChips = chips;
                 let thisChip = thesePresetChips.splice(index, 1)[0];
-                if (multiSelect) theseChips.push({
+                if (multiSelect) theseChips = theseChips.concat([{
                     name: thisChip.name,
                     color: thisChip.color,
                     id: Math.floor(Math.random() * 10000) + '-' + Date.now()
-                });
+                }]);
                 else theseChips = [
                     {
                         name: thisChip.name,
