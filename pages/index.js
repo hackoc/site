@@ -488,7 +488,7 @@ export default function Home() {
           <button className={styles.altButton}>GitHub</button>
         </a>
         <h1>Sponsors</h1>
-        <a href="https://vercel.com">
+        <a href="https://www.anduril.com/">
         <img className={styles.sponsor} src="https://cdn.sanity.io/images/z5s3oquj/production/ed722e0559833f0a6d4e33c83bcc74f4f1add21a-1000x194.png" />
         </a>
         <p>Hack OC wouldn't be possible without help from our sponsors. Want to help make Hack OC incredible? Email us at <a href="mailto:team@hackoc.org" style={{ color: 'var(--orange)', textDecoration: 'underline' }} data-splitbee-event="Email Click" data-splitbee-event-location="sidebar">team@hackoc.org</a> or check out our <a href="/prospectus" style={{ color: 'var(--orange)', textDecoration: 'underline' }} target="_blank" onClick={e => {
