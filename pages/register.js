@@ -84,6 +84,14 @@ export default function Register() {
   }, []);
 
 
+  useEffect(() => {
+    try {
+      rdt('track', 'Lead', {
+    });
+  
+    } catch (err) {}
+  }, []);
+
   // const handleSubmit = (event) => {
   //   event.preventDefault();
   //   // Execute the reCAPTCHA when the form is submitted
