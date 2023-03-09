@@ -10,7 +10,15 @@ export default function Success () {
     const [name, setName] = useState('');
 
     useEffect(() => {
-        setName(new URLSearchParams(window.location.search).get('name'));
+        const newName = new URLSearchParams(window.location.search).get('name');
+        setName(newName);
+        try {
+            rdt('track', 'SignUp', {
+                "name": newName
+            });
+        } catch (err) {
+            console.log(err);
+        }
     }, []);
     return (
         <>
