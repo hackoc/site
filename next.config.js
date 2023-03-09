@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 
+const campaigns = {
+  capo: 'https://hackoc.org/?utm_source=poster&utm_medium=physical&utm_campaign=capo&utm_content=qr',
+  ihs: 'https://hackoc.org/?utm_source=poster&utm_medium=physical&utm_campaign=ihs&utm_content=qr',
+  test: 'https://example.com/?utm_source=poster&utm_medium=physical&utm_campaign=test&utm_content=qr'
+}
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -99,7 +105,13 @@ const nextConfig = {
         destination: 'mailto:team@hackoc.org',
         basePath: false,
         permanent: false
-      }
+      },
+      ...Object.entries(campaigns).map(([campaign, url]) => ({
+        source: `/c/${campaign}`,
+        destination: url,
+        basePath: false,
+        permanent: false
+      }))
     ]
   }
 }
