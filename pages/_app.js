@@ -3,6 +3,8 @@ import Head from 'next/head'
 import Script from 'next/script'
 import { useEffect } from 'react'
 import splitbee from '@splitbee/web';
+import { Analytics } from "@vercel/analytics/react";
+
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -38,6 +40,7 @@ function MyApp({ Component, pageProps }) {
         src="https://cdn.splitbee.io/sb.js"
       />
       <Component {...pageProps} />
+      <Analytics />
     </>
   )
 }
