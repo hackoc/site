@@ -4,7 +4,11 @@ const campaigns = {
   capo: 'https://hackoc.org/?utm_source=poster&utm_medium=physical&utm_campaign=capo&utm_content=qr',
   ihs: 'https://hackoc.org/?utm_source=poster&utm_medium=physical&utm_campaign=ihs&utm_content=qr',
   test: 'https://example.com/?utm_source=poster&utm_medium=physical&utm_campaign=test&utm_content=qr'
-}
+};
+
+const releases = {
+  '2023-03-13': '1.pdf'
+};
 
 const nextConfig = {
   reactStrictMode: true,
@@ -23,7 +27,11 @@ const nextConfig = {
       {
         source: '/registration/link-discord/callback',
         destination: '/api/discord/link',
-      }
+      },
+      ...Object.entries(releases).map(([ name, file ]) => ({
+        source: `/press/releases/${name}`,
+        destination: `/press/${file}`,
+      }))
 	  ];
   },
   redirects: async () => {
