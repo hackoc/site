@@ -92,6 +92,10 @@ export default function Register() {
     } catch (err) {}
   }, []);
 
+  useEffect(() => {
+    console.log('Discord stuff changed');
+  }, discordTag, discordId)
+
   // const handleSubmit = (event) => {
   //   event.preventDefault();
   //   // Execute the reCAPTCHA when the form is submitted

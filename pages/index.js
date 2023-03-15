@@ -249,7 +249,7 @@ export default function Home() {
           position: 'relative',
           height: '55px'
         }}>
-          <p style={{opacity: submitted ? 1 : 0.7, color: submitted ? 'rgb(34, 191, 116)' : 'white'}}>{submitted ? 'Loading...' : 'Registration is now open!'}</p>
+          <p style={{opacity: submitted ? 1 : 0.7, color: submitted ? 'rgb(34, 191, 116)' : 'white'}}>{submitted ? 'Loading...' : 'Register here!'}</p>
           {!submitted &&
         <center className={styles.inputCenter} style={{
           display: 'block',
@@ -326,6 +326,43 @@ export default function Home() {
           </center>
 }
           </center>
+        </div>
+
+        <div style={{
+          backgroundImage: "url('https://cloud-ff9d9ddrh-hack-club-bot.vercel.app/0dots_orange.svg')",
+          // repeat
+          backgroundRepeat: 'repeat',
+          margin: '0px',
+          // padding: '20px 70px',
+          textAlign: 'center',
+        }} className={styles.prizes}>
+          <h1 style={{
+            color: 'white',
+            // big black text shadow, comic book style
+            WebkitFontSmoothing: 'antialiased',
+            MozOsxFontSmoothing: 'grayscale',
+            fontWeight: 'bold',
+            textShadow: `black 4px 4px 0px`
+          }}>
+            Over <span style={{
+              textDecoration: 'underline'
+            }}>$4,000</span> in prizes across <span style={{
+              textDecoration: 'underline'
+            }}>6&nbsp;tracks</span>!
+          </h1>
+          <h2 style={{
+            padding: '10px',
+            // orange
+            background: '#ffffff66',
+            borderRadius: '10px',
+            marginTop: '-10px',
+            marginBottom: '24px',
+            display: 'inline-block'
+          }}>
+            Prizes include mechanical&nbsp;keyboards, game&nbsp;consoles, AirPods&nbsp;Pro, 3D&nbsp;printers, and&nbsp;more!
+
+          </h2>
+
         </div>
 
         <div className={styles.content} style={{
@@ -452,7 +489,8 @@ export default function Home() {
               }}>{title}</h3>
               <p style={{
                 fontWeight: '350',
-                marginBottom: '0px'
+                marginBottom: '0px',
+                fontSize: '18px'
               }}>{content}</p>
             </BaseCard>
           ))}
