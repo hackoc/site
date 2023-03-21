@@ -23,12 +23,39 @@
   .content {
     padding: 5rem 5rem;
   }
+  .prizes {
+    padding: 15px 50px;
+  }
+  .prizes h1 {
+    font-size: 50px!important;
+  }
+  .prizes h2 {
+    font-size: 24px!important;
+  }
 }
 
 @media (min-width: 800px) {
   .content {
     padding: 2rem 8rem;
   }
+  .prizes {
+    padding: 20px 70px;
+  }
+  .prizes > h1 {
+    font-size: 60px!important;
+  }
+}
+
+.prizes {
+  padding: 10px 30px;
+}
+.prizes h1 {
+  font-size: 40px;
+}
+.prizes h2 {
+  font-size: 20px;
+  font-weight: 400;
+  color: #19191c;
 }
 
 .footer {
