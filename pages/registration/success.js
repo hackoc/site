@@ -49,7 +49,7 @@ export default function Success () {
             }}>
                 <img src="/logo-full-light.png" style={{ maxWidth: '50%', position: 'absolute', bottom: '2rem', right: '2rem' }} />
                 <h1 style={{ marginBottom: '0px' }}>You're registered{name ? `, ${name}` : ''}!</h1>
-                <p>Next, you'll submit proof of vaccination and sign the event waiver. We'll reach out to you when we're ready.</p>
+                <p>Next, you'll need to sign the event waiver. We'll reach out to you when we're ready.</p>
                 <p>In the meantime, join our <a href="/discord" target="_blank" style={{ color: 'var(--orange)', textDecoration: 'underline' }}>Discord server</a> to meet other hackers. Announcements and judging will happen through Discord, so it's important you join ahead of time.</p>
             </div>
             </Modal>
