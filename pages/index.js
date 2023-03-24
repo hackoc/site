@@ -241,7 +241,7 @@ export default function Home() {
                 transform: 'translate(2px, 6px)',
                 marginRight: '6px'
               }} />
-              April 1st 9am-9pm
+              May 6th 9am-9pm
             </b>
           </span> at Anduril
         </p>
