@@ -235,7 +235,7 @@ export default function Register() {
           <h2 style={{
             textAlign: 'center',
             color: '#444'
-          }}>April 1st • Anduril HQ • 9am-9pm</h2>
+          }}>May 6th • Anduril HQ • 9am-9pm</h2>
           <form onSubmit={e => e.preventDefault()}>
             {sections.map((section, i) => {
               return (
