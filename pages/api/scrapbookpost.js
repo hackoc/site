@@ -39,6 +39,6 @@ export default async function handler(req, res) {
             id: uid
             
         }));
-        res.json({id: uid,...response});
+        res.json({uid, object: response});
         client.close();
 }
