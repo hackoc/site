@@ -346,7 +346,7 @@ export default function Home() {
           }}>
             Over <span style={{
               textDecoration: 'underline'
-            }}>$4,000</span> in prizes across <span style={{
+            }}>$8,000</span> in prizes across <span style={{
               textDecoration: 'underline'
             }}>6&nbsp;tracks</span>!
           </h1>
@@ -525,57 +525,70 @@ export default function Home() {
         <a href="/github" target="_blank">
           <button className={styles.altButton}>GitHub</button>
         </a>
-        <h1>Sponsors</h1>
+        <h1>Sponsored by</h1>
         <a href="https://anduril.com">
         <img className={styles.sponsor} src="https://cdn.sanity.io/images/z5s3oquj/production/ed722e0559833f0a6d4e33c83bcc74f4f1add21a-1000x194.png" />
         </a>
-        <p>Hack OC wouldn't be possible without help from our sponsors. Want to help make Hack OC incredible? Email us at <a href="mailto:team@hackoc.org" style={{ color: 'var(--orange)', textDecoration: 'underline' }} data-splitbee-event="Email Click" data-splitbee-event-location="sidebar">team@hackoc.org</a> or check out our <a href="/prospectus" style={{ color: 'var(--orange)', textDecoration: 'underline' }} target="_blank" onClick={e => {
+        {/* <p>Hack OC wouldn't be possible without help from our sponsors. Want to help make Hack OC incredible? Email us at <a href="mailto:team@hackoc.org" style={{ color: 'var(--orange)', textDecoration: 'underline' }} data-splitbee-event="Email Click" data-splitbee-event-location="sidebar">team@hackoc.org</a> or check out our <a href="/prospectus" style={{ color: 'var(--orange)', textDecoration: 'underline' }} target="_blank" onClick={e => {
           e.preventDefault();
           splitbee.track("Prospectus Download", {
             ...(email ? { email } : {})
           });
           window.open('/prospectus');
-        }}>prospectus</a> to get involved!</p>
+        }}>prospectus</a> to get involved!</p> */}
         <br />
-        <h2>SPECIAL THANKS TO</h2>
-        <a href="https://hackclub.com/bank">
-        <img className={styles.sponsor} src="/sponsor-assets/bank.svg" />
-        </a>
-        <a href="https://vercel.com">
-        <img className={styles.sponsor} src="/sponsor-assets/vercel.svg" />
-        </a>
-        <a href="https://bank.hackclub.com/hackoc/donations" target="_blank">
+        <h2 style={{
+          marginBottom: '0px'
+        }}>SPECIAL THANKS TO</h2>
         <div style={{
-          width: '300px',
-          maxWidth: '100%',
-          height: '100px',
-          border: '2px solid transparent',
-          marginTop: '10px',
-          background: '#8899aa33',
-          borderRadius: '8px'
-        }} className={styles.sponsor}>
-          <center>
-            <h2 style={{
-              marginBottom: '0px',
-              whiteSpace: 'nowrap',
-              textOverflow: 'ellipsis',
-              width: 'calc(100% - 60px)',
-              overflow: 'hidden'
-            }}>{donor}</h2>
-            <p style={{
-              textTransform: 'uppercase',
-              marginTop: '8px',
-              fontSize: '12px',
-              color: '#8899aa',
-              lineHeight: '0px'
-            }}>and other generous donors
-              <Icon glyph="external" size={16} style={{
-                transform: 'translate(1px, 3px)'
-              }} />
-            </p>
-          </center>
-        </div>
-        </a>
+          display: 'flex',
+          // vertical align middle
+          alignItems: 'center',
+          // enable line wrap
+          flexWrap: 'wrap',
+        }}>
+          <a href="https://hackclub.com/bank" style={{
+            marginTop: '20px',
+            marginBottom: '20px'
+          }}>
+          <img className={styles.sponsor} src="/sponsor-assets/bank.svg" />
+          </a>
+          <a href="https://bank.hackclub.com/hackathon-grant-fund">
+          <img className={styles.sponsor} src="https://lelandhacks.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbank_grant.fa04d410.png&w=1920&q=75" />
+          </a>
+          <a href="https://bank.hackclub.com/hackoc/donations" target="_blank">
+          <div style={{
+            width: '300px',
+            maxWidth: '100%',
+            height: '100px',
+            border: '2px solid transparent',
+            marginTop: '10px',
+            background: '#8899aa33',
+            borderRadius: '8px'
+          }} className={styles.sponsor}>
+            <center>
+              <h2 style={{
+                marginBottom: '0px',
+                whiteSpace: 'nowrap',
+                textOverflow: 'ellipsis',
+                width: 'calc(100% - 60px)',
+                overflow: 'hidden'
+              }}>{donor}</h2>
+              <p style={{
+                textTransform: 'uppercase',
+                marginTop: '8px',
+                fontSize: '12px',
+                color: '#8899aa',
+                lineHeight: '0px'
+              }}>and other generous donors
+                <Icon glyph="external" size={16} style={{
+                  transform: 'translate(1px, 3px)'
+                }} />
+              </p>
+            </center>
+          </div>
+          </a>
+          </div>
       </div>
       <div style={{
         background: '#ddd',
