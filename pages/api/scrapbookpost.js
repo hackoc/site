@@ -23,7 +23,7 @@ client.connect(err => {
 
 export default async function handler(req, res) {
     if (req.body.token !== process.env.PRIVATE_TOKEN) return res.send("oops");
-    const dbPromise = dbConnect();
+    const client = await dbConnect();
     
         const collection = client.db("primary").collection("scrapbook");
         
