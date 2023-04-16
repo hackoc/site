@@ -21,29 +21,13 @@ client.connect(err => {
 
 }
 
-const uid = new ShortUniqueId({ length: 10 });
 
 export default async function handler(req, res) {
-    if (req.body.token !== process.env.PRIVATE_TOKEN) return res.send("oops");
     const client = await dbConnect();
-    const shortId = uid();
-
-
     
         const collection = client.db("primary").collection("scrapbook");
         
-        const response = (await collection.insertOne({
-            name: req.body.name,
-            avatar: req.body.avatar,
-            user: req.body.user,
-            message: req.body.message,
-            image: req.body.image,
-            shortId
-            
-        }));
-        res.json({
-            mongoDbId: response.insertedId,
-            shortId
-        });
+        const posts = (await collection.find().toArray());
+        res.json(posts);
         client.close();
 }

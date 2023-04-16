@@ -28,6 +28,10 @@ const nextConfig = {
         source: '/registration/link-discord/callback',
         destination: '/api/discord/link',
       },
+      {
+        source: '/s/:id',
+      	destination: '/scrapbook',
+      },
       ...Object.entries(releases).map(([ name, file ]) => ({
         source: `/press/releases/${name}`,
         destination: `/press/${file}`,
