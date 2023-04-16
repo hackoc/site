@@ -18,7 +18,8 @@
     "node-fetch": "^3.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-google-recaptcha": "^2.1.0"
+    "react-google-recaptcha": "^2.1.0",
+    "short-unique-id": "^4.4.4"
   },
   "devDependencies": {
     "eslint": "8.22.0",

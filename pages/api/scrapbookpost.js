@@ -1,3 +1,4 @@
+import ShortUniqueId from "short-unique-id";
 import fetch from "node-fetch";
 
 const sleep = () => new Promise((resolve) => {
@@ -24,6 +25,9 @@ client.connect(err => {
 export default async function handler(req, res) {
     if (req.body.token !== process.env.PRIVATE_TOKEN) return res.send("oops");
     const client = await dbConnect();
+
+    const uid = new ShortUniqueId({ length: 10 });
+
     
         const collection = client.db("primary").collection("scrapbook");
         
@@ -32,8 +36,9 @@ export default async function handler(req, res) {
             avatar: req.body.avatar,
             message: req.body.message,
             image: req.body.image,
+            id: uid
             
         }));
-        res.json(response);
+        res.json({id: uid,...response});
         client.close();
 }
