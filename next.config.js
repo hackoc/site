@@ -114,6 +114,12 @@ const nextConfig = {
         basePath: false,
         permanent: false
       },
+      {
+      	source: '/flyer1',
+      	destination: 'https://drive.google.com/file/d/1VOOkyHptTRwy-sA1JrVfYu-Vu4Y0MEyw/view',
+      	basePath: false,
+      	permanent: false
+      }
       ...Object.entries(campaigns).map(([campaign, url]) => ({
         source: `/c/${campaign}`,
         destination: url,
