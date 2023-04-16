@@ -60,14 +60,16 @@ export function Update ({ post, id }) {
   return (
 
     <BaseCard style={{...(((post.shortId == id) && !overwrite) ? {
-            border: '2px solid rgba(var(--orange-3-values), 1)',
             background: 'rgba(var(--orange-3-values), 0.6)',
         } : {
-            border: '2px solid transparent',
             background: 'rgba(var(--orange-3-values), 0.3)',
         }),
+
         transition: 'all 1s ease-in-out',
 
+        ...(((post.shortId == id)) ? {
+            border: '2px solid rgba(var(--orange-3-values), 1)',
+        } : {})
         }}>
       <span style={{
         display: 'flex',
