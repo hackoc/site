@@ -21,12 +21,13 @@ client.connect(err => {
 
 }
 
+const uid = new ShortUniqueId({ length: 10 });
 
 export default async function handler(req, res) {
     if (req.body.token !== process.env.PRIVATE_TOKEN) return res.send("oops");
     const client = await dbConnect();
+    const shortId = uid();
 
-    const uid = new ShortUniqueId({ length: 10 });
 
     
         const collection = client.db("primary").collection("scrapbook");
@@ -36,9 +37,12 @@ export default async function handler(req, res) {
             avatar: req.body.avatar,
             message: req.body.message,
             image: req.body.image,
-            id: uid
+            shortId
             
         }));
-        res.json({uid, object: response});
+        res.json({
+            mongoDbId: response.insertedId,
+            shortId
+        });
         client.close();
 }
