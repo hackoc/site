@@ -31,7 +31,7 @@ export default async function handler(req, res) {
         const collection = client.db("primary").collection("scrapbook");
         
         const response = (await collection.deleteOne({
-            id: req.body.id
+            shortId: req.body.id
             
         }));
         res.json({

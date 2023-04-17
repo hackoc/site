@@ -38,7 +38,8 @@ export default async function handler(req, res) {
             user: req.body.user,
             message: req.body.message,
             image: req.body.image,
-            shortId
+            shortId,
+            discord: req.body.discord
             
         }));
         res.json({
