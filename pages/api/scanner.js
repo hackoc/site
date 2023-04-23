@@ -6,7 +6,7 @@ export default async function scanner (req, res) {
     const dbPromise = dbConnect();
 
     const client = await dbPromise;
-    const collection = client.db("primary").collection("signups");
+    const collection = client.db("primary").collection("users");
     const existingRecord = (await collection.findOne({
       Email: data["Email"]
     }));

@@ -28,7 +28,7 @@ export default async function handler(req, res) {
         const collection = client.db("primary").collection("scrapbook");
         
         const posts = (await collection.find().toArray());
-        const registrations = (await client.db("primary").collection("signups").find().toArray());
+        const registrations = (await client.db("primary").collection("users").find().toArray());
         const users = {};
         registrations.forEach(registration => {
             users[registration['Discord Tag']] = registration['Full Name']
