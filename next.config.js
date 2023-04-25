@@ -47,6 +47,12 @@ const nextConfig = {
         permanent: false
       },
       {
+        source: '/event/1',
+        destination: 'https://hackoc.org/',
+        basePath: false,
+        permanent: false
+      },
+      {
         source: '/branding',
         destination: 'https://www.figma.com/file/R1sQCpxFQqQ8laUmySwoZ3/Hack-OC-Branding-%7C-Public-Facing?node-id=0%3A1&t=sCjA6w0V7Q2b639x-1',
         basePath: false,
