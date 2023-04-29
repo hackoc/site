@@ -91,6 +91,13 @@ export default async function handler(req, res) {
         // Return 200 if everything is successful
         try {
         await email(data["Email"], data["Full Name"]);
+        await fetch(process.env.LATE_WEBHOOK, {
+          method: 'POST',
+          body: JSON.stringify({
+            Email: data["Email"],
+            Name: data["Full Name"],
+          })
+        });
         } catch (err) {
 
       return res.status(422).json({ message: "We had trouble sending you an email. Please report this error." });

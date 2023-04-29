@@ -238,7 +238,7 @@ export default function Home() {
           position: 'relative',
           height: '55px'
         }}>
-          <p style={{opacity: submitted ? 1 : 0.7, color: submitted ? 'rgb(34, 191, 116)' : 'white'}}>{submitted ? 'Loading...' : 'Register here!'}</p>
+          <p style={{opacity: submitted ? 1 : 1, color: submitted ? 'rgb(34, 191, 116)' : '#f54646'}}>{submitted ? 'Loading...' : 'Last chance to register!'}</p>
           {!submitted &&
         <center className={styles.inputCenter} style={{
           display: 'block',
