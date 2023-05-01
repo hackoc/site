@@ -47,6 +47,12 @@ const nextConfig = {
         permanent: false
       },
       {
+        source: '/lastchance',
+        destination: 'https://hackoc.org/?utm_source=twitter&utm_campaign=lastchance&utm_medium=link&utm_content=lastchance',
+        basePath: false,
+        permanent: false
+      },
+      {
         source: '/event/1',
         destination: 'https://hackoc.org/',
         basePath: false,
