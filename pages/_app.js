@@ -22,6 +22,15 @@ function MyApp({ Component, pageProps }) {
       !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','t2_sl22gnht', {"optOut":false,"useDecimalCurrencyValues":true,"aaid":"<AAID-HERE>","email":"<EMAIL-HERE>","externalId":"<EXTERNAL-ID-HERE>","idfa":"<IDFA-HERE>"});rdt('track', 'PageVisit');
           `}} />
           
+          <script src="https://www.googletagmanager.com/gtag/js?id=AW-11164215889"></script>
+        <script dangerouslySetInnerHTML={{ __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag(‘js’, new Date());
+  gtag(‘config’, ‘AW-11164215889’);
+
+`}} />
+          
         <link rel="favicon" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.png" />
         <link rel="icon" href="/favicon.png" />
