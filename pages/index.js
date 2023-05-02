@@ -348,7 +348,7 @@ export default function Home() {
             marginBottom: '24px',
             display: 'inline-block'
           }}>
-            Prizes include mechanical&nbsp;keyboards, game&nbsp;consoles, AirPods&nbsp;Pro, 3D&nbsp;printers, and&nbsp;more!
+            Prizes include <b>Framework&nbsp;Laptop</b>, mechanical&nbsp;keyboards, game&nbsp;consoles, AirPods&nbsp;Pro, 3D&nbsp;printers, and&nbsp;more!
 
           </h2>
 
