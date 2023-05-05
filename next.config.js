@@ -54,7 +54,7 @@ const nextConfig = {
       },
       {
         source: '/event/1',
-        destination: 'https://hackoc.org/',
+        destination: 'https://hackoc.org/discord',
         basePath: false,
         permanent: false
       },
