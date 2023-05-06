@@ -21,31 +21,21 @@ client.connect(err => {
 
 }
 
-const uid = new ShortUniqueId({ length: 10 });
 
 export default async function handler(req, res) {
-    if (req.body.token !== process.env.PRIVATE_TOKEN) return res.send("oops");
     const client = await dbConnect();
-    const shortId = uid();
-
-
     
-        const collection = client.db("primary").collection("ship");
+        const collection = client.db("primary").collection("ships");
         
-        const response = (await collection.insertOne({
-            name: req.body.name,
-            avatar: req.body.avatar,
-            user: req.body.user,
-            message: req.body.message,
-            image: req.body.image,
-            shortId,
-            title: req.body.title,
-            discord: req.body.discord
-            
-        }));
-        res.json({
-            mongoDbId: response.insertedId,
-            shortId
+        const posts = (await collection.find().toArray());
+        const registrations = (await client.db("primary").collection("users").find().toArray());
+        const users = {};
+        registrations.forEach(registration => {
+            users[registration['Discord Tag']] = registration['Full Name']
         });
+        res.json(posts.map(post => {
+            if (users[post.name]) post.name = users[post.name];
+            return post;
+        }));
         client.close();
 }
