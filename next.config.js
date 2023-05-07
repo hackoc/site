@@ -129,6 +129,12 @@ const nextConfig = {
         permanent: false
       },
       {
+        source: '/swag',
+        destination: "https://forms.gle/78DevocjpseXDSeFA",
+        basePath: false,
+        permanent: false
+      },
+      {
         source: '/email',
         destination: 'mailto:team@hackoc.org',
         basePath: false,
