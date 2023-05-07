@@ -93,6 +93,7 @@ export function Update ({ post, id }) {
       }}>{post.name ?? 'Unknown Author'}</h1>
 
       </span>
+      <p>{post.message}</p>
       <center>
       <img style={{
         maxWidth: '100%',

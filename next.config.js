@@ -34,7 +34,7 @@ const nextConfig = {
       },
       {
         source: '/h/:id',
-      	destination: '/ship',
+      	destination: '/ships',
       },
       ...Object.entries(releases).map(([ name, file ]) => ({
         source: `/press/releases/${name}`,

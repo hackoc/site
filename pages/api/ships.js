@@ -25,9 +25,11 @@ client.connect(err => {
 export default async function handler(req, res) {
     const client = await dbConnect();
     
-        const collection = client.db("primary").collection("ships");
+        const collection = client.db("primary").collection("ship");
         
         const posts = (await collection.find().toArray());
+
+        console.log(posts);
         const registrations = (await client.db("primary").collection("users").find().toArray());
         const users = {};
         registrations.forEach(registration => {

@@ -93,6 +93,8 @@ export function Update ({ post, id }) {
       }}>{post.name ?? 'Unknown Author'}</h1>
 
       </span>
+      <p>{post.message}</p>
+
       <center>
       <img style={{
         maxWidth: '100%',
@@ -177,7 +179,7 @@ export default function Home() {
           overflow: 'hidden'
         }}>
           <h1 className={styles.title}> 
-            Scrapbook
+            Ships
           </h1>
           <a href="/">
             <p className={styles.description} style={{
