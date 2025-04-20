@@ -230,7 +230,7 @@ export default function Home() {
                 transform: 'translate(2px, 6px)',
                 marginRight: '6px'
               }} />
-              May 6th 9am-9pm
+              May 6th 2023 9am-9pm
             </b>
           </span> at Anduril
         </p>
