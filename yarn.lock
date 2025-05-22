@@ -752,6 +752,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@fillout/react@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@fillout/react/-/react-3.0.0.tgz#9a3b92ac0c3d19c30eecbbf96ac89526a526e947"
+  integrity sha512-L+0XGo44cXNOB+fHch0OPeIopkTomgn92yXGbJEQAYJEpZJ7LkUlQV5KgtW3E9IZh9ZX7EdeiOcFd1VijTfhCQ==
+
 "@hackclub/icons@^0.0.9":
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/@hackclub/icons/-/icons-0.0.9.tgz#77a6a6420b7381f54c8be3a0713915d503624951"

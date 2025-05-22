@@ -10,6 +10,7 @@
     "pages-build": "next build && next export && rm -rf docs && mv out docs"
   },
   "dependencies": {
+    "@fillout/react": "^3.0.0",
     "@hackclub/icons": "^0.0.9",
     "@splitbee/web": "^0.3.0",
     "@vercel/analytics": "^0.1.11",

@@ -7,6 +7,7 @@ import splitbee from '@splitbee/web';
 import with$, { withNodrag } from '../utils/cssUtils';
 import useMedia, { useViewport } from '../utils/useMedia';
 import Sidebar from '../components/Sidebar';
+import { FilloutStandardEmbed } from "@fillout/react";
 
 const meta_desc = "Orange County's first high school coding event since the pandemic. Join us for 12 hours of hacking, workshops, & friendship.";
 const theme_color = '#FA7B33';
@@ -172,7 +173,6 @@ export default function Home() {
         backgroundSize: 'cover',
         color: "white",
         userSelect: 'none',
-        pointerEvents: 'none',
       }}>
         <div style={{
           width: "100%",
@@ -182,9 +182,13 @@ export default function Home() {
           justifyContent: "center",
           alignItems: "center",
           backdropFilter: "blur(50px)",
+          overflow: "hidden",
         }}>
           <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/74e446abead96c481c704b0cdb332df8e90f6f16_group_47.svg" />
-          <h1>Coming Soon</h1>
+          <h1 style={{
+            marginBottom: "40px"
+          }}>Coming Soon</h1>
+          <FilloutStandardEmbed filloutId="6FWy549Jjgus" dynamicResize />
         </div>
       </div>
     </>
