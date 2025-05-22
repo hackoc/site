@@ -152,12 +152,6 @@ const nextConfig = {
       	basePath: false,
       	permanent: false
       },
-      {
-      	source: '/register',
-      	destination: 'https://hackoc.org',
-      	basePath: false,
-      	permanent: false
-      },
       ...Object.entries(campaigns).map(([campaign, url]) => ({
         source: `/c/${campaign}`,
         destination: url,
