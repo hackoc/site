@@ -144,13 +144,8 @@ export default function Home() {
 
       </iframe>
     </Modal>
-    <div className={styles.container} style={{
-      position: 'relative',
-      zIndex: '10',
-      overflow: 'hidden'
-    }}>
       <Head>
-        <title>Hack OC - Orange County's high school hackathon</title>
+        <title>Hack OC 2025</title>
         <meta name="description" content={meta_desc} />
         <link rel="icon" href="/favicon.ico" />
         <meta key="og_locale" property="og:locale" content="en_US" />
@@ -166,284 +161,32 @@ export default function Home() {
         <meta key="tw_img" name="twitter:image" content={social_image} />
       </Head>
 
-      <main className={styles.main}>
-        <div className="background-charcoal color-white" style={{
-          width: '100%',
-          padding: '5rem 2rem',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          <h1 className={styles.title}> 
-            Hack <span className="color-orange" style={{
-              marginLeft: '-12px',
-              position: 'relative'
-            }}>
-              OC
-              <img src="/orange.svg" style={{
-                position: 'absolute',
-                bottom: '50%',
-                left: '0px',
-                transform: 'translate(10%, 44.5%)'
-              }} className="noselect" />
-            </span>
-          </h1>
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={`https://image.mux.com/${timelapseId}/thumbnail.png?width=214&height=121&fit_mode=pad`}
-            duration={2000}
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              right: 0,
-              height: 'auto!important',
-              width: '100% !important',
-              minHeight: '600px',
-              objectFit: 'cover',
-              zIndex: -1
-            }}
-        >
-          <source src={`https://stream.mux.com/${timelapseId}.m3u8`} />
-          <source src={`https://stream.mux.com/${timelapseId}/medium.mp4`} />
-        </video>
-        <p className={styles.description}>
-          <span className="color-orange">
-            <b>
-              <Icon glyph="pin" size={32} style={{
-                transform: 'translate(2px, 6px)'
-              }} />
-              Orange County
-            </b>
-          </span>'s First Post-Pandemic Hackathon
-        </p>
-        <p className={styles.description} style={{
-          marginTop: '-16px'
-        }}>
-          <span style={{
-            color: '#ccc'
-          }}>
-            <b>
-              <Icon glyph="event-code" size={32} style={{
-                transform: 'translate(2px, 6px)',
-                marginRight: '6px'
-              }} />
-              May 6th 9am-9pm
-            </b>
-          </span> at Anduril
-        </p>
-        <center style={{
-          position: 'relative',
-          height: '55px'
-        }}>
-          </center>
-        </div>
-
-        <div style={{
-          backgroundImage: "url('https://cloud-ff9d9ddrh-hack-club-bot.vercel.app/0dots_orange.svg')",
-          // repeat
-          backgroundRepeat: 'repeat',
-          margin: '0px',
-          // padding: '20px 70px',
-          textAlign: 'center',
-        }} className={styles.prizes}>
-          <h1 style={{
-            color: 'white',
-            // big black text shadow, comic book style
-            WebkitFontSmoothing: 'antialiased',
-            MozOsxFontSmoothing: 'grayscale',
-            fontWeight: 'bold',
-            textShadow: `black 4px 4px 0px`
-          }}>
-            Over <span style={{
-              textDecoration: 'underline'
-            }}>$8,000</span> in prizes across <span style={{
-              textDecoration: 'underline'
-            }}>6&nbsp;tracks</span>!
-          </h1>
-          <h2 style={{
-            padding: '10px',
-            // orange
-            background: '#ffffff66',
-            borderRadius: '10px',
-            marginTop: '-10px',
-            marginBottom: '24px',
-            display: 'inline-block'
-          }}>
-            Prizes include mechanical&nbsp;keyboards, game&nbsp;consoles, AirPods&nbsp;Pro, 3D&nbsp;printers, and&nbsp;more!
-
-          </h2>
-
-        </div>
-
-        <div className={styles.content} style={{
-          position: 'relative'
-        }}>
-          <div style={{
-            position: 'relative',
-            zIndex: '20'
-          }} className={styles.innerContent}>
-          <h2>What's Hack OC?</h2>
-          <p>Hack OC is the first in-person high school hackathon after the pandemic in Orange County, California. We're inviting all high schoolers to participate in <span>12 hours</span> of <span>coding</span>, <span>building</span>, <span>learning</span>, and <span>fun</span>. Whether you're technical and experienced or haven't ever written a line of code, Hack OC will be a fun and welcoming event for everyone.</p>
-
-          </div>
-          </div>
-                  {/* 3 columns on large screens, 2 on medium, 1 on small */}
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(' + cardSize + ', 100%), 1fr))',
-          gridGap: cardGap,
-          padding: '30px',
-          margin: '0 auto',
-          maxWidth: `calc(calc(${cardSize} * 2) + ${cardGap} + 60px + 200px)`
-        }}>
-          
-            <Card title="Build something" icon="idea">
-              By the end, you’ll have built something new and unique with your team.
-            </Card>
-            <ImageCard src="https://cloud-hmw10hgy3-hack-club-bot.vercel.app/0hack_club_assemble_ltnj_01371.jpg" caption="Hackers collaborating on a project" />
-
-            {width((
-              <>
-                <Card title="Learn new skills" icon="code">
-                  Whether you're new to coding or a seasoned developer, you'll learn new skills and technologies at our workshops.
-                </Card>
-                <ImageCard src="https://cloud-6fqxfny8b-hack-club-bot.vercel.app/0hack_club_assemble_ltnj_01770.jpg" caption="Workshop at Assemble in 2022" left={true} />
-              </>
-            ), 840, (
-              <>
-                <ImageCard src="https://cloud-6fqxfny8b-hack-club-bot.vercel.app/0hack_club_assemble_ltnj_01770.jpg" caption="Workshop at Assemble in 2022" left={true} />
-                <Card title="Learn new skills" icon="code">
-                  Whether you're new to coding or a seasoned developer, you'll learn new skills and technologies at our workshops.
-                </Card>
-              </>
-            ))}
-            <Card title="Make connections" icon="person">
-              You'll meet other hackers and programmers from all over Orange County.
-            </Card>
-            <Card title="Have fun" icon="sticker">
-              Hack OC has stickers, swag, food, and prizes to make your time coding exciting and fun.
-            </Card>
-
-          
-
-        </div>
-        <div className={styles.content} style={{
-          position: 'relative'
-        }}>
-          <div style={{
-            position: 'relative',
-            zIndex: '20'
-          }} className={styles.innerContent}>
-          <h2>What's a "hackathon"?</h2>
-          <p>Hackathons are in-person coding events where teenagers come together to learn new skills, create fun projects, and make memories. There's also food, snacks, and drinks to fuel your creativity. Instead of hacking bank accounts like you hear in the news, you'll build something meaningful to you.</p>
-          <h2>Who can participate in Hack OC?</h2>
-          <p>We're inviting all high school students to participate in Hack OC <span>completely free</span>. If you'd still like to support us, however, <a href="#" onClick={e => { e.preventDefault(); setModal(true); splitbee.track("Donate Click", { location: 'copy' }); }}>you can donate here</a>. Since this hackathon is geared toward just high school students, we aren't allowing any college students or older to participate.</p>
-          </div>
-
-      <img src="/orange.png" style={with$('nodrag', 'noselect', {
+      <div style={{
+        width: '100%',
+        height: '100%',
         position: 'absolute',
-        bottom: '-20px',
-        right: '-40px',
-        width: '300px',
-        zIndex: '15',
-        filter: 'opacity(0.7)'
-      })} />
-      
-        </div>
-
-      <div style={{
-        overflowY: 'scroll',
-        background: 'white',
-        borderTop: '5px solid var(--orange)',
-        color: 'black',
-
-      }} className={styles.content}>
-      <h2 style={{ color: 'black' }}>Questions?</h2>
-      <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
-          gridGap: cardGap,
-          margin: '0 auto',
-          paddingBottom: '30px',
-          paddingLeft: '-30px',
-          paddingRight: '-30px',
-          maxWidth: `calc(calc(300px * 3) + ${cardGap} * 3 + 60px + 200px)`
+        top: '0px',
+        left: '0px',
+        zIndex: '-1',
+        background: "url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/8398e3591fd420c8d1c194c616ab7ca170fb5ae5_image.png')",
+        backgroundSize: 'cover',
+        color: "white",
+        userSelect: 'none',
+        pointerEvents: 'none',
+      }}>
+        <div style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          backdropFilter: "blur(50px)",
         }}>
-          {Object.entries({
-            'Can I join?': <>
-              If you're in middle school or high school, yes, you can attend! If you're unsure or have questions, shoot us a message at <a href="mailto:team@hackoc.org">team@hackoc.org</a>.
-            </>,
-            'What can I make?': <>
-              Anything! Apps, games, websites, art, and hardware projects are all welcome. Check out what <a href="https://hackclub.com/ship" target="_blank">other hackers are making</a>.
-            </>,
-            'How much does it cost?': <>
-              Nothing! Hack OC is free for all attendees. We'll cover meals, snacks, swag, and prizes, as well as other fun mini-events.
-            </>,
-            'Who is judging?': <>
-              Judging is done by the people that matter most– the attendees. When it's time for demo, you'll get to vote for your favorite projects in each category.
-            </>,
-            'I\'m not that good at coding...': <>
-              Everybody starts somewhere! At Hack OC, we'll have workshops and mentors to help you learn new skills and build something awesome. If you want to explore some resources before the event, check out <a href="https://hackclub.com/workshops" target="_blank">Hack Club's Workshops</a>.
-            </>,
-            'Is there anything in place to help prevent COVID-19 from spreading?': <>
-              We'll screen for COVID-19 symptoms before the event, and we'll have hand sanitizer and masks available for all attendees. Masks are not required, but they are strongly recommended.
-            </>
-          }).map(([title, content]) => (
-            <BaseCard style={{
-              padding: '20px'
-            }}>
-              <h3 style={{
-                marginTop: '0px',
-                fontWeight: '500'
-              }}>{title}</h3>
-              <p style={{
-                fontWeight: '350',
-                marginBottom: '0px',
-                fontSize: '18px'
-              }}>{content}</p>
-            </BaseCard>
-          ))}
-          </div>
-        </div>
-      </main>
-      <Sidebar />
-      <div style={{
-        background: '#ddd',
-        fontWeight: '300',
-        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '20px',
-        flexDirection: 'column'
-      }} className={styles.bottomFooter}>
-        <div>
-          Hack OC is fiscally sponsored by The Hack Foundation.
-          Nonprofit EIN: 81-2908499.
-        </div>
-        <div style={{ marginTop: '10px', marginBottom: '-8px' }}>
-          <a href="https://instagram.com/hack.oc" data-splitbee-event="Instagram Click" data-splitbee-event-location="footer">
-            <Icon glyph='instagram' size={32} />
-          </a>
-          <a href="https://github.com/hackoc" data-splitbee-event="GitHub Click" data-splitbee-event-location="footer">
-            <Icon glyph='github' size={32} />
-          </a>
-          <a href="https://bank.hackclub.com/hackoc" data-splitbee-event="Finances Click" data-splitbee-event-location="footer">
-            <Icon glyph='bank-account' size={32} />
-          </a>
-          <a href="mailto:team@hackoc.org" data-splitbee-event="Email Click" data-splitbee-event-location="footer">
-            <Icon glyph='email' size={32} />
-          </a>
-          <a href="https://twitter.com/letshackoc" data-splitbee-event="Twitter Click" data-splitbee-event-location="footer">
-            <Icon glyph='twitter' size={32} />
-          </a>
+          <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/74e446abead96c481c704b0cdb332df8e90f6f16_group_47.svg" />
+          <h1>Coming Soon</h1>
         </div>
       </div>
-    </div>
     </>
   )
 }
