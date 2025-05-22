@@ -90,7 +90,8 @@ export function Card ({ title, icon, children, style }) {
   )
 }
 
-export default function Home() {
+export default function Home({ headers }) {
+  console.log({headers});
   const [modal, setModal] = useState(false);
   const handleFormEnter = () => { 
     if (regex.test(email) && !loading) {
@@ -194,4 +195,15 @@ export default function Home() {
       </div>
     </>
   )
+}
+
+export function getServerSideProps(context) {
+  const { req } = context;
+  const { headers } = req;
+
+  return {
+    props: {
+      headers
+    },
+  }
 }
