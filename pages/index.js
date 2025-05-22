@@ -90,8 +90,7 @@ export function Card ({ title, icon, children, style }) {
   )
 }
 
-export default function Home({ headers }) {
-  console.log({headers});
+export default function Home({ formParams }) {
   const [modal, setModal] = useState(false);
   const handleFormEnter = () => { 
     if (regex.test(email) && !loading) {
@@ -190,7 +189,7 @@ export default function Home({ headers }) {
           <h1 style={{
             marginBottom: "40px"
           }}>Coming Soon</h1>
-          <FilloutStandardEmbed filloutId="6FWy549Jjgus" dynamicResize />
+          <FilloutStandardEmbed filloutId="6FWy549Jjgus" dynamicResize parameters={formParams} />
         </div>
       </div>
     </>
@@ -203,7 +202,11 @@ export function getServerSideProps(context) {
 
   return {
     props: {
-      headers
+      formParams: {
+        est_lat: headers['x-vercel-ip-latitude'],
+        est_long: headers['x-vercel-ip-longitude'],
+        est_city: headers['x-vercel-ip-city']
+      }
     },
   }
 }
