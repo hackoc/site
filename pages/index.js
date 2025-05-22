@@ -169,8 +169,9 @@ export default function Home() {
         top: '0px',
         left: '0px',
         zIndex: '-1',
-        background: "url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/8398e3591fd420c8d1c194c616ab7ca170fb5ae5_image.png')",
+        background: "url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/10fab01a330c7cb8b6b6ac35ebcaa1355a15dd5a_image_2__7___1_.png')",
         backgroundSize: 'cover',
+        backgroundPosition: 'center',
         color: "white",
         userSelect: 'none',
       }}>
