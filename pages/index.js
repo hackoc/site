@@ -205,7 +205,7 @@ export function getServerSideProps(context) {
       formParams: {
         est_lat: headers['x-vercel-ip-latitude'],
         est_long: headers['x-vercel-ip-longitude'],
-        est_city: headers['x-vercel-ip-city']
+        est_city: decodeURIComponent(headers['x-vercel-ip-city'])
       }
     },
   }
