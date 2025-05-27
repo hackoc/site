@@ -185,7 +185,9 @@ export default function Home({ formParams }) {
           backdropFilter: "blur(50px)",
           overflow: "hidden",
         }}>
-          <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/74e446abead96c481c704b0cdb332df8e90f6f16_group_47.svg" />
+          <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/74e446abead96c481c704b0cdb332df8e90f6f16_group_47.svg" style={{
+          	maxWidth: "calc(100vw - 50px)"
+          }} />
           <h1 style={{
             marginBottom: "40px"
           }}>Coming Soon</h1>
