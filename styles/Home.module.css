@@ -275,12 +275,19 @@
   margin-bottom: 16px;
   border: 2px solid var(--orange);
   color: white;
-  cursor: pointer;
   font-family: var(--font-stack);
   transition: 0.3s transform, 0.08s box-shadow;
 }
 
-.altButton:hover {
+.altButton:not(:disabled) {
+  cursor: pointer;
+}
+
+.altButton:disabled {
+  opacity: 0.6;
+}
+
+.altButton:not(:disabled):hover {
   transform: translateY(-4px);
 }
 

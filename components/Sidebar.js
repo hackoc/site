@@ -7,14 +7,6 @@ export default function Sidebar () {
     const [donor, setDonor] = useState('');
     useEffect(() => {
       fetch('/api/donor').then(res => res.text()).then(setDonor);
-      if (!localStorage.getItem('hackoc-analytics')) {
-        fetch('https://ip.yodacode.xyz').then(res => res.json()).then(({ geo }) => {
-          splitbee.user.set({
-            city: geo.city
-          });
-          localStorage.setItem('hackoc-analytics', true);
-        });
-      }
     }, []);
     return (
     <div className={styles.sponsors} style={{
@@ -24,7 +16,7 @@ export default function Sidebar () {
           <button className={styles.altButton} style={{
             background:  'rgba(var(--orange-3-values), 1)',
             position: 'relative',
-          }}>Register
+          }} disabled>Registration Closed
             <Icon glyph="external" style={{
               position: 'absolute',
               right: '1rem',

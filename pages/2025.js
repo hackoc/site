@@ -146,7 +146,7 @@ export default function Home({ formParams }) {
       </iframe>
     </Modal>
       <Head>
-        <title>Hack OC</title>
+        <title>Hack OC 2025</title>
         <meta name="description" content={meta_desc} />
         <link rel="icon" href="/favicon.ico" />
         <meta key="og_locale" property="og:locale" content="en_US" />
@@ -185,37 +185,13 @@ export default function Home({ formParams }) {
           backdropFilter: "blur(50px)",
           overflow: "hidden",
         }}>
-          <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/4fbbf6ec6f56600e2c94d13e07406bd708236569_group_45__1_.svg" style={{
+          <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/74e446abead96c481c704b0cdb332df8e90f6f16_group_47.svg" style={{
           	maxWidth: "calc(100vw - 50px)"
           }} />
-          <h3 style={{
-            marginBottom: "40px",
-            textAlign: 'center',
-            paddingLeft: '20px',
-            paddingRight: '20px',
-            fontWeight: 500,
-          }}>Supporting computer science education for teens in Orange County</h3>
+          <h1 style={{
+            marginBottom: "40px"
+          }}>Coming Soon</h1>
           <FilloutStandardEmbed filloutId="6FWy549Jjgus" dynamicResize parameters={formParams} />
-          <div style={{
-            position: "absolute",
-            bottom: "20px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            textAlign: "center",
-            display: 'flex',
-            flexDirection: 'row',
-            gap: '10px',
-          }}>
-            <p style={{
-              margin: '0px',
-              fontWeight: 300
-            }}>Past Events:</p>
-            <a href="/2023" style={{
-              color: 'white',
-              margin: '0px',
-              textDecoration: 'underline',
-            }}>2023</a>
-          </div>
         </div>
       </div>
     </>
