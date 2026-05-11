@@ -11,7 +11,7 @@ import { FilloutStandardEmbed } from "@fillout/react";
 
 const meta_desc = "Orange County's high school hackathon";
 const theme_color = '#FA7B33';
-const social_image = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/777fe734e848f3b800c7ea600764edf9ddd5c2ac_open-graph.png';
+const social_image = 'https://cdn.hackclub.com/rescue?url=https://hc-cdn.hel1.your-objectstorage.com/s/v3/777fe734e848f3b800c7ea600764edf9ddd5c2ac_open-graph.png';
 
 const regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
@@ -169,7 +169,7 @@ export default function Home({ formParams }) {
         top: '0px',
         left: '0px',
         zIndex: '-1',
-        background: "url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/10fab01a330c7cb8b6b6ac35ebcaa1355a15dd5a_image_2__7___1_.png')",
+        background: "url('https://cdn.hackclub.com/rescue?url=https://hc-cdn.hel1.your-objectstorage.com/s/v3/10fab01a330c7cb8b6b6ac35ebcaa1355a15dd5a_image_2__7___1_.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: "white",
@@ -185,7 +185,7 @@ export default function Home({ formParams }) {
           backdropFilter: "blur(50px)",
           overflow: "hidden",
         }}>
-          <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/4fbbf6ec6f56600e2c94d13e07406bd708236569_group_45__1_.svg" style={{
+          <img src="https://cdn.hackclub.com/rescue?url=https://hc-cdn.hel1.your-objectstorage.com/s/v3/4fbbf6ec6f56600e2c94d13e07406bd708236569_group_45__1_.svg" style={{
           	maxWidth: "calc(100vw - 50px)"
           }} />
           <h3 style={{
